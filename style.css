@@ -31,7 +31,7 @@ body {
 #author {
   font-size: 28px;
 }
-#text{
+#text {
   font-size: 25px;
 }
 
@@ -83,4 +83,19 @@ h1 {
 }
 .copy > a {
   color: white !important;
+}
+
+#search {
+  margin-top: 120px;
+  width: 90%;
+}
+
+#search > .form-floating {
+  width: 50%;
+}
+
+.form-floating{
+ box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
+  -webkit-box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
+  -moz-box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
 }
