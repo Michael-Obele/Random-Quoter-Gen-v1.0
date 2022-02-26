@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./bootstrap.css" />
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Random Quoter</title>
+  </head>
+  <body>
+    <h1 class="text-center">Random Quote Machine</h1>
+    <div id="quote-box" class="card mb-2 mx-auto">
+      <div class="row g-0">
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 id="author" class="card-title"></h5>
+            <div id="text" class=""></div>
+          </div>
+        </div>
+        <div class="tweet">
+          <a id="tweet-quote" title="Tweet this quote!" target="_top">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </div>
+        <div class="copy">
+          <a id="tweet-quote" title="Tweet this quote!" target="_top">
+            <i class="fa fa-copy"></i>
+          </a>
+        </div>
+      </div>
+      <div class="justify-content-start smallText">
+        <p class="card-text"><small class="text-muted"></small></p>
+      </div>
+      <div class="d-grid gap-2 d-flex justify-content-end">
+        <button
+          id="new-quote"
+          class="btn btn-primary btn-lg"
+          title="Get another Quote!"
+        >
+          Next Quote
+        </button>
+      </div>
+    </div>
+  </body>
+</html>
