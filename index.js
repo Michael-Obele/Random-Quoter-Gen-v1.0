@@ -19,13 +19,11 @@ async function getapi(url) {
     const d = new Date();
     let day = days[d.getDay()];
     const rndInt = Math.floor(Math.random() * 50) + 1;
-    $('#text').html(
-      `<p class='card-text'> &ldquo; ${data[rndInt].q} &rdquo;</p>`
-    );
+    $('#text').html(`<p> &ldquo; ${data[rndInt].q} &rdquo;</p>`);
     $('#author').text(data[rndInt].a);
     $('#text').fadeOut(0).fadeIn('slow');
     $('#author').fadeOut(0).fadeIn('slow');
-    $('.text-muted').text(
+    $('.dater').text(
       `Generated on ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
     );
     $('#tweet-quote').attr(
@@ -60,6 +58,16 @@ $(document).ready(function () {
   // calling clipboard func
   $('.copy').click(function () {
     copyToClipboard();
+  });
+});
+
+$(document).ready(function () {
+  
+   $('.btn-close').click(function () {
+      $('#liveToast').toggleClass('show');
+   });
+  $('#liveToastBtn').click(function () {
+    $('#liveToast').toggleClass('show');
   });
 });
 
@@ -128,7 +136,7 @@ $(document).ready(function () {
 //     $('#author').text(data[rndInt].author);
 //     $('#text').fadeOut(0).fadeIn('slow');
 //     $('#author').fadeOut(0).fadeIn('slow');
-//     $('.text-muted').text(
+//     $('.dater').text(
 //       `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
 //     );
 //   });
