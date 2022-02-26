@@ -142,8 +142,7 @@ const settings = {
 
 $.ajax(settings).done(function (response) {
   const data = JSON.parse(response);
-  const d = new Date();
-  $('#new-quote').click(function () {
-    const rndInt = Math.floor(Math.random() * 1600) + 1;
-  });
+  var author = 'Thomas Edison';
+  const filtered = data.filter( datum => datum.author == author);
+  console.log(filtered);
 });
