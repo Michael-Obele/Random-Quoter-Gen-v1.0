@@ -61,12 +61,24 @@ $(document).ready(function () {
   });
 });
 
+$(function () {
+  $('.pushme').click(function () {
+    $(this).text(function (i, text) {
+      return text === 'PUSH ME' ? "DON'T PUSH ME" : 'PUSH ME';
+    });
+  });
+});
+
+
 $(document).ready(function () {
   
    $('.btn-close').click(function () {
       $('#liveToast').toggleClass('show');
    });
   $('#liveToastBtn').click(function () {
+    $('#liveToastBtn').text(function (i, text) {
+      return text == 'See Changes' ? 'Hide Changes' : 'See Changes';
+    });
     $('#liveToast').toggleClass('show');
   });
 });
@@ -109,6 +121,7 @@ $(document).ready(function () {
     $('.card').css('color', random_color);
     $('#new-quote').css('background-color', random_color);
     $('.tweet').css('background-color', random_color);
+    $('.btn').css('background-color', `${random_color} !important`);
     $('.copy').css('background-color', random_color);
     $('body').css('background-color', random_color);
   };
@@ -120,24 +133,17 @@ $(document).ready(function () {
   });
 });
 
-// const settings = {
-//   async: true,
-//   crossDomain: true,
-//   url: 'https://type.fit/api/quotes',
-//   method: 'GET',
-// };
+const settings = {
+  async: true,
+  crossDomain: true,
+  url: 'https://type.fit/api/quotes',
+  method: 'GET',
+};
 
-// $.ajax(settings).done(function (response) {
-//   const data = JSON.parse(response);
-//   const d = new Date();
-//   $('#new-quote').click(function () {
-//     const rndInt = Math.floor(Math.random() * 1600) + 1;
-//     $('#text').text(data[rndInt].text);
-//     $('#author').text(data[rndInt].author);
-//     $('#text').fadeOut(0).fadeIn('slow');
-//     $('#author').fadeOut(0).fadeIn('slow');
-//     $('.dater').text(
-//       `${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
-//     );
-//   });
-// });
+$.ajax(settings).done(function (response) {
+  const data = JSON.parse(response);
+  const d = new Date();
+  $('#new-quote').click(function () {
+    const rndInt = Math.floor(Math.random() * 1600) + 1;
+  });
+});

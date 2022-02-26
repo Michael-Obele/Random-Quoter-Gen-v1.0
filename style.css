@@ -4,16 +4,19 @@ body {
 h1 {
   color: aliceblue;
 }
-#liveToastBtn{
+#liveToastBtn {
   margin: 20px;
 }
 
-#new-quote {
-  margin: 15px;
-}
 .card-title {
   padding-bottom: 20px;
   font-size: larger;
+}
+
+.shadowed {
+  box-shadow: 14px 19px 10px 0px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 14px 19px 10px 0px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 14px 19px 10px 0px rgba(0, 0, 0, 0.25);
 }
 
 .card {
@@ -22,9 +25,6 @@ h1 {
   height: 340px;
   max-width: 95%;
   max-height: fit-content;
-  box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
-  -webkit-box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
-  -moz-box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
 }
 
 .smallText {
@@ -33,7 +33,6 @@ h1 {
   left: 8px;
   bottom: 5px;
 }
-
 
 #author {
   font-size: 28px;
@@ -46,12 +45,12 @@ h1 {
   transition: background-color 1.3s ease;
   position: absolute;
   bottom: 0px;
+  margin: 15px;
 }
 #new-quote:focus {
   outline: none;
   box-shadow: none;
 }
-
 
 .tweet {
   margin: 18px;
@@ -93,18 +92,24 @@ h1 {
   margin-top: 120px;
   width: 90%;
 }
+.btn:focus, .btn:active {
+  outline: none;
+  box-shadow: none;
+  color: #fff;
+            border-color: white !important;
+}
+.btn,.btn:hover {
+  color: white;
+            border-color:white;
+        }
 
-#search > .form-floating {
+.searchQ {
   width: 50%;
+  margin: 30px;
+  padding-left: 200px;
 }
 
-.say{
-margin: 40px;
-}
-
-.form-floating{
-margin: 30px;
- box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
-  -webkit-box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
-  -moz-box-shadow: 4px 4px 33px 21px rgba(0, 0, 0, 0.48);
+.say {
+  margin: 40px;
+  height: fit-content;
 }
