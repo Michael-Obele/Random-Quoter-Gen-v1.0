@@ -16,10 +16,12 @@
   </head>
   <body>
     <section id="welcome">
-      <button type="button" class="btn" id="liveToastBtn">
-        See Changes
-      </button>
+      <div class="hide">
 
+        <button type="button" class="btn" id="liveToastBtn">
+          See Changes
+        </button>
+      </div>
       <div class="position-fixed top-0 end-0 p-4" style="z-index: 11">
         <div
           id="liveToast"
@@ -32,7 +34,7 @@
             <strong class="me-auto">Latest Changes</strong>
             <button
               type="button"
-              class="btn-close"
+              class="btn-close toclose"
               data-bs-dismiss="toast"
               aria-label="Close"
             ></button>
@@ -42,6 +44,28 @@
               <li>Added Copy Button to copy to clipboard, Enjoy! ;)</li>
               <li>Added search compability</li>
             </ul>
+          </div>
+        </div>
+      </div>
+       <div class="position-fixed top-0 end-0 p-4" style="z-index: 11">
+        <div
+          id="copyToast"
+          class="toast hide"
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        >
+          <div class="toast-header">
+            <strong class="me-auto">Copied</strong>
+            <button
+              type="button"
+              class="btn-close altcls"
+              data-bs-dismiss="toast"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="toast-body">
+            <p>You've Copied This Quote</p>
           </div>
         </div>
       </div>
@@ -63,7 +87,7 @@
           </a>
         </div>
         <div class="copy">
-          <a id="tweet-quote" title="Tweet this quote!" target="_top">
+          <a id="copy-quote" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copy this quote!" target="_top">
             <i class="fa fa-copy"></i>
           </a>
         </div>
@@ -92,14 +116,14 @@
           </p>
           <p>
             In case you don't find a match, don't freight, you may yet see their
-            name randomly generated.
+            name randomly generated, just keep clicking &ldquo; Next Quote &rdquo; .
           </p>
         </div>
       </div>
 
         <div class="searchQ mx-auto row">
            <div class="col-auto ">
-      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+      <input class="form-control" list="datalistOptions" placeholder="Type to search...">
       <datalist id="datalistOptions">
         <option value="Dan Brown">
       </datalist>

@@ -58,28 +58,22 @@ $(document).ready(function () {
   // calling clipboard func
   $('.copy').click(function () {
     copyToClipboard();
+    $('#copy-quote').attr('title','Copied');
+    $('#copyToast').toggleClass('show');
   });
+  $('.altcls').click(function () {
+     $('#copyToast').toggleClass('show');
+  })
 });
-
-$(function () {
-  $('.pushme').click(function () {
-    $(this).text(function (i, text) {
-      return text === 'PUSH ME' ? "DON'T PUSH ME" : 'PUSH ME';
-    });
-  });
-});
-
 
 $(document).ready(function () {
-  
-   $('.btn-close').click(function () {
+   $('.toclose').click(function () {
+    $('#liveToastBtn').toggle();
       $('#liveToast').toggleClass('show');
    });
   $('#liveToastBtn').click(function () {
-    $('#liveToastBtn').text(function (i, text) {
-      return text == 'See Changes' ? 'Hide Changes' : 'See Changes';
-    });
     $('#liveToast').toggleClass('show');
+    $('#liveToastBtn').toggle();
   });
 });
 

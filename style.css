@@ -92,23 +92,26 @@ h1 {
   margin-top: 120px;
   width: 90%;
 }
-.btn:focus, .btn:active {
+.btn:focus,
+.btn:active {
   outline: none;
   box-shadow: none;
   color: #fff;
-            border-color: white !important;
+  border-color: white !important;
 }
-.btn,.btn:hover {
+.btn,
+.btn:hover {
   color: white;
-            border-color:white;
-        }
-
-.searchQ {
-  width: 50%;
-  margin: 30px;
-  padding-left: 200px;
+  border-color: white;
 }
 
+.btn-close{
+  font-size: 18px;
+}
+.searchQ {
+  width: 70%;
+  padding: 20px 150px 20px;
+}
 .say {
   margin: 40px;
   height: fit-content;
