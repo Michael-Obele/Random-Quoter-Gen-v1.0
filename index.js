@@ -26,11 +26,13 @@ async function getapi(url) {
     $('.dater').text(
       `Generated on ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
     );
-    $('#tweet-quote').attr(
-      'href',
-      'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
-        encodeURIComponent('"' + data[rndInt].q + '" —' + data[rndInt].a)
-    );
+    $('.tweet').click(function () {
+      $('#tweet-quote').attr(
+        'href',
+        'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
+          encodeURIComponent('"' + data[rndInt].q + '" —' + data[rndInt].a)
+      );
+    });
     myText = {
       author: data[rndInt].a,
       quote: data[rndInt].q,
@@ -58,22 +60,35 @@ $(document).ready(function () {
   // calling clipboard func
   $('.copy').click(function () {
     copyToClipboard();
-    $('#copy-quote').attr('title','Copied');
+    $('#copy-quote').attr('data-bs-original-title', 'Copied');
     $('#copyToast').toggleClass('show');
+     $('#copy-quote').tooltip('show');
   });
   $('.altcls').click(function () {
-     $('#copyToast').toggleClass('show');
-  })
+    $('#copyToast').toggleClass('show');
+  });
+ 
 });
 
 $(document).ready(function () {
-   $('.toclose').click(function () {
-    $('#liveToastBtn').toggle();
-      $('#liveToast').toggleClass('show');
-   });
+  $('.toclose').click(function () {
+    $('#liveToastBtn').removeClass('vis');
+    $('#liveToast').toggleClass('show');
+  });
   $('#liveToastBtn').click(function () {
     $('#liveToast').toggleClass('show');
-    $('#liveToastBtn').toggle();
+    $('#liveToastBtn').addClass('vis');
+  });
+});
+
+$(document).ready(function () {
+  // Initialize tooltips
+  var tooltipTriggerList = [].slice.call(
+    document.querySelectorAll('[data-bs-toggle="tooltip"]')
+  );
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    console.log(bootstrap)
+    return new bootstrap.Tooltip(tooltipTriggerEl);
   });
 });
 
@@ -134,9 +149,14 @@ const settings = {
   method: 'GET',
 };
 
-$.ajax(settings).done(function (response) {
-  const data = JSON.parse(response);
-  var author = 'Thomas Edison';
-  const filtered = data.filter( datum => datum.author == author);
-  console.log(filtered);
-});
+
+  $.ajax(settings).done(function (response) {
+    const data = JSON.parse(response);
+    $('#searchBtn').click(function () {
+      var author = $('input').val();
+      console.log(author);
+      const filtered = data.filter((datum) => datum.author == author);
+      console.log(filtered);
+    });
+  });
+

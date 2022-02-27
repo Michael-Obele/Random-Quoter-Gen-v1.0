@@ -105,14 +105,30 @@ h1 {
   border-color: white;
 }
 
-.btn-close{
+.btn-close {
   font-size: 18px;
 }
 .searchQ {
-  width: 70%;
-  padding: 20px 150px 20px;
+  margin-top: 60px;
+  width: 60%;
 }
+.vis{
+  opacity: 0;
+}
+
 .say {
-  margin: 40px;
+  margin-top: 40px;
   height: fit-content;
+    width: 60%;
+}
+#search > .card > .card-body > h5{
+  font-size: 30px;
+}
+
+#search > .card > .card-body > p{
+  font-size: 20px;
+}
+
+.searchQ > .col-auto > .form-control{
+  width: 30vw;
 }

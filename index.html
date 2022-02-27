@@ -9,6 +9,7 @@
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="./bootstrap.css" />
+    <script src="./bootstrap.bundle.min.js"></script>
     <script src="./jquery-3.6.0.min.js"></script>
     <script src="./index.js"></script>
     <link rel="stylesheet" href="style.css" />
@@ -16,8 +17,7 @@
   </head>
   <body>
     <section id="welcome">
-      <div class="hide">
-
+      <div class="">
         <button type="button" class="btn" id="liveToastBtn">
           See Changes
         </button>
@@ -32,12 +32,14 @@
         >
           <div class="toast-header">
             <strong class="me-auto">Latest Changes</strong>
-            <button
-              type="button"
-              class="btn-close toclose"
-              data-bs-dismiss="toast"
-              aria-label="Close"
-            ></button>
+            <div class="toclose">
+              <button
+                type="button"
+                class="btn-close toclose"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+              ></button>
+            </div>
           </div>
           <div class="toast-body">
             <ul>
@@ -81,13 +83,13 @@
             <div id="text" class=""></div>
           </div>
         </div>
-        <div class="tweet">
-          <a id="tweet-quote" title="Tweet this quote!" target="_top">
+        <div class="tweet" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Tweet this quote!" target="_top">
+          <a id="tweet-quote">
             <i class="fa fa-twitter"></i>
           </a>
         </div>
-        <div class="copy">
-          <a id="copy-quote" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copy this quote!" target="_top">
+        <div id="copy-quote" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copy this quote!" target="_top" class="copy">
+          <a>
             <i class="fa fa-copy"></i>
           </a>
         </div>
@@ -105,8 +107,8 @@
         </button>
       </div>
     </div>
-    <section id="search">
-      <div class="card mx-auto shadowed say" style="width: 18rem">
+    <section id="search" class="position-relative">
+      <div class="card mx-auto shadowed say">
         <div class="card-body">
           <h5 class="card-title">Search Quote by Name!</h5>
           <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
@@ -120,19 +122,23 @@
           </p>
         </div>
       </div>
+      <div class="position-relative">
 
-        <div class="searchQ mx-auto row">
+        <div class="searchQ mx-auto row position-absolute top-50 start-50 translate-middle">
            <div class="col-auto ">
-      <input class="form-control" list="datalistOptions" placeholder="Type to search...">
+      <input class="form-control" id="data" list="datalistOptions" placeholder="Type to search...">
       <datalist id="datalistOptions">
         <option value="Dan Brown">
+          <option value="Thomas Edison">
       </datalist>
         </div>
         <div class="col-auto">
-          <button type="submit" class="btn mb-3">Search</button>
+          <button id="searchBtn" type="submit" class="btn mb-3">Search</button>
         </div>
       </datalist>
         </div>
+      </div>
+
 
       <div class="card visually-hidden mx-auto">
         <div class="card-header">Quote</div>
