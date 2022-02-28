@@ -129,6 +129,7 @@ $(document).ready(function () {
   const colorCode = () => {
     var random_color = colors[Math.floor(Math.random() * colors.length)];
     $('.card').css('color', random_color);
+    $('.list-group').css('color', random_color);
     $('#new-quote').css('background-color', random_color);
     $('.tweet').css('background-color', random_color);
     $('.btn').css('background-color', `${random_color} !important`);
@@ -168,18 +169,18 @@ $('#datalistOptions').append(`<option value="${x}">`);
 authorList(data)
 
 
-  $('#searchBtn').click(function () {
-    var author = $('input').val();
-    filtered = data.filter((datum) => datum.author == author);
-    $('.deList').text('');
+$('#searchBtn').click(function () {
+  var author = $('input').val();
+  filtered = data.filter((datum) => datum.author == author);
+  $('.deList').text('');
   filtered.map((x) =>
     $('.deList').append(
       `<li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto tag"> ${x.text}  — ${x.author}  </div>
-  </li>`
-    )
-  );
-  });
+      <div class="ms-2 me-auto tag"> ${x.text}  — ${x.author}  </div>
+      </li>`
+      )
+      );
+    });
 });
 
 // use when you have strength to finish this...

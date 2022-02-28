@@ -91,6 +91,9 @@ h1 {
   margin-top: 120px;
   width: 90%;
 }
+.list-group-item{
+  color: inherit;
+}
 .btn:focus,
 .btn:active {
   outline: none;
