@@ -24,14 +24,13 @@ h1 {
   margin-top: 30px;
   height: 340px;
   max-width: 95%;
-  max-height: fit-content;
+  max-height: max-content;
 }
 
 .smallText {
   position: absolute;
   bottom: 0px;
   left: 8px;
-  bottom: 5px;
 }
 
 #author {
@@ -44,8 +43,8 @@ h1 {
 #new-quote {
   transition: background-color 1.3s ease;
   position: absolute;
-  bottom: 0px;
-  margin: 15px;
+  bottom: 5px;
+  margin: 20px;
 }
 #new-quote:focus {
   outline: none;
@@ -112,23 +111,71 @@ h1 {
   margin-top: 60px;
   width: 60%;
 }
-.vis{
+.vis {
   opacity: 0;
 }
 
 .say {
   margin-top: 40px;
   height: fit-content;
-    width: 60%;
+  width: 60%;
 }
-#search > .card > .card-body > h5{
+#search > .card > .card-body > h5 {
   font-size: 30px;
 }
 
-#search > .card > .card-body > p{
+#search > .card > .card-body > p {
   font-size: 20px;
 }
 
-.searchQ > .col-auto > .form-control{
+.searchQ > .col-auto > .form-control {
   width: 30vw;
+}
+.deSearch {
+  width: 65%;
+  height: 120px;
+  max-height: max-content;
+  margin: 10vw auto 15vw;
+}
+.badgeCol {
+  color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+  #author {
+    font-size: 20px;
+  }
+  #text {
+    margin-top: 45px;
+    font-size: 15.5px;
+  }
+  #search > .card > .card-body > h5 {
+    font-size: 15px;
+  }
+
+  #search > .card > .card-body > p {
+    font-size: 12px;
+  }
+  .deSearch {
+    width: 85%;
+    height: 20vh;
+    max-height: max-content;
+    margin: 40vw auto 65vw;
+  }
+  #search > .card {
+    width: 90%;
+  }
+  .searchQ > .col-auto > .form-control {
+    width: 50vw;
+  }
+  .tweet {
+    top: 25px;
+  }
+  .copy {
+    top: 25px;
+    right: 50px;
+  }
+  #liveToast{
+    width: 90vw;
+  }
 }

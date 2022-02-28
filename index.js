@@ -40,9 +40,11 @@ async function getapi(url) {
   }
   pack();
   $('#new-quote').click(function () {
+    $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
     pack();
   });
 }
+// turn this on before development
 getapi(api_url);
 
 $(document).ready(function () {
@@ -60,14 +62,13 @@ $(document).ready(function () {
   // calling clipboard func
   $('.copy').click(function () {
     copyToClipboard();
-    $('#copy-quote').attr('data-bs-original-title', 'Copied');
-    $('#copyToast').toggleClass('show');
-     $('#copy-quote').tooltip('show');
+    $('#copy-quote').attr('data-bs-original-title', 'Copied!');
+    // $('#copyToast').toggleClass('show');
+    $('#copy-quote').tooltip('show');
   });
   $('.altcls').click(function () {
     $('#copyToast').toggleClass('show');
   });
- 
 });
 
 $(document).ready(function () {
@@ -81,14 +82,14 @@ $(document).ready(function () {
   });
 });
 
+//Toast function
 $(document).ready(function () {
   // Initialize tooltips
   var tooltipTriggerList = [].slice.call(
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
   );
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    console.log(bootstrap)
-    return new bootstrap.Tooltip(tooltipTriggerEl);
+    return new bootstrap.Tooltip(tooltipTriggerEl,200000);
   });
 });
 
@@ -133,6 +134,7 @@ $(document).ready(function () {
     $('.btn').css('background-color', `${random_color} !important`);
     $('.copy').css('background-color', random_color);
     $('body').css('background-color', random_color);
+    $('.badgeCol').css('background-color', random_color);
   };
 
   colorCode();
@@ -149,14 +151,57 @@ const settings = {
   method: 'GET',
 };
 
+$.ajax(settings).done(function (response) {
+  const data = JSON.parse(response); 
+    var authorList = (data) => {
+      var authors = [];
+      for (let i = 0; i < data.length; i++) {
+        authors.push(data[i].author);
+        // 
+      }
+      var SetAuthor = new Set(authors);
+      var ArrAuthor = Array.from(SetAuthor);
+      ArrAuthor.map(x => {
+$('#datalistOptions').append(`<option value="${x}">`);
+      } )
+    };
+authorList(data)
 
-  $.ajax(settings).done(function (response) {
-    const data = JSON.parse(response);
-    $('#searchBtn').click(function () {
-      var author = $('input').val();
-      console.log(author);
-      const filtered = data.filter((datum) => datum.author == author);
-      console.log(filtered);
-    });
+
+  $('#searchBtn').click(function () {
+    var author = $('input').val();
+    filtered = data.filter((datum) => datum.author == author);
+    $('.deList').text('');
+  filtered.map((x) =>
+    $('.deList').append(
+      `<li class="list-group-item d-flex justify-content-between align-items-start">
+    <div class="ms-2 me-auto tag"> ${x.text}  — ${x.author}  </div>
+  </li>`
+    )
+  );
   });
+});
 
+// use when you have strength to finish this...
+$(document).ready(function () {
+  function copyToClipboard() {
+    
+    /* Get the text field */
+    var copyText = document.getElementsByClassName('tag');
+
+    /* Select the text field */
+    copyText.text();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+  }
+  $('.badgeCol').click(function () {
+$('.tag').addClass('coping');
+copyToClipboard();
+  });
+})
+// add later
+{/* <button class="badge badgeCol"><a>
+            <i class="fa fa-copy"></i>
+          </a></button> */}
