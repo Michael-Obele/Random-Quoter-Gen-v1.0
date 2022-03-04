@@ -2,7 +2,7 @@ const api_url =
   'https://young-gorge-47284.herokuapp.com/https://zenquotes.io/api/quotes/';
 
 var myText;
-
+// Get Qoutes API
 async function getapi(url) {
   const response = await fetch(url);
   var data = await response.json();
@@ -44,7 +44,7 @@ async function getapi(url) {
     pack();
   });
 }
-// turn this on before development
+// turn this off before development
 getapi(api_url);
 
 $(document).ready(function () {
@@ -71,6 +71,7 @@ $(document).ready(function () {
   });
 });
 
+// See Changes Btn
 $(document).ready(function () {
   $('.toclose').click(function () {
     $('#liveToastBtn').removeClass('vis');
@@ -92,7 +93,14 @@ $(document).ready(function () {
     return new bootstrap.Tooltip(tooltipTriggerEl,200000);
   });
 });
+// Change Font Func
+$(document).ready(function () {
+   $('.Dqoute').css('font-family','');
+})
+// End Change Font Func
 
+
+// Change Colors
 $(document).ready(function () {
   var colors = ['#ff0000'];
   var genColor = (color) => {
@@ -144,7 +152,10 @@ $(document).ready(function () {
     colorCode();
   });
 });
+// end of Change Colors
 
+
+// For the Search Qoute
 const settings = {
   async: true,
   crossDomain: true,
@@ -183,6 +194,7 @@ $('#searchBtn').click(function () {
     });
 });
 
+
 // use when you have strength to finish this...
 $(document).ready(function () {
   function copyToClipboard() {
@@ -202,7 +214,7 @@ $('.tag').addClass('coping');
 copyToClipboard();
   });
 })
-// add later
+// might add later
 {/* <button class="badge badgeCol"><a>
             <i class="fa fa-copy"></i>
           </a></button> */}

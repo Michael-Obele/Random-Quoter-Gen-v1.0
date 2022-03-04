@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
@@ -74,15 +76,17 @@
     </section>
     <!-- The Beginning -->
     <h1 class="text-center">Random Quote Machine</h1>
-
+    <!-- Quote Body -->
     <div id="quote-box" class="card mb-2 mx-auto shadowed">
       <div class="row g-0">
         <div class="col-md-8">
-          <div class="card-body">
+          <div class="card-body Dqoute">
             <h5 id="author" class="card-title"></h5>
             <div id="text" class=""></div>
           </div>
         </div>
+        <!-- End of Quote Body -->
+        <!-- Buttons and rest -->
         <div class="tweet" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Tweet this quote!" target="_top">
           <a id="tweet-quote">
             <i class="fa fa-twitter"></i>
@@ -107,13 +111,16 @@
         </button>
       </div>
     </div>
+    <!--  End of the Whole Quote Body-->
+    <img src="..." class="img-fluid Dimage" alt="...">
+    <!-- Search Part -->
     <section id="search" class="position-relative">
       <div class="card mx-auto shadowed say">
         <div class="card-body">
           <h5 class="card-title">Search Quote by Name!</h5>
           <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
           <p class="card-text">
-            So you can search a quote by author's name, kust type in the box below.
+            So you can search a quote by author's name, just type in the box below.
           </p>
           <p>
             In case you don't find a match, don't freight, you may yet see their
@@ -122,7 +129,6 @@
         </div>
       </div>
       <div class="position-relative">
-
         <div class="searchQ mx-auto row position-absolute top-50 start-50 translate-middle">
            <div class="col-auto ">
       <input class="form-control" id="data" list="datalistOptions" placeholder="Type to search...">
