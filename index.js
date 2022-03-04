@@ -117,7 +117,6 @@ $(document).ready(function () {
 
   var changeFont = () => {
     var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
-    console.log(random_font);
     $('.Dqoute').css('font-family', random_font);
   };
   changeFont();
