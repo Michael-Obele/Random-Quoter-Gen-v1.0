@@ -4,8 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Permanent+Marker:400' rel='stylesheet' type='text/css'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Rock+Salt:400"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:600' rel='stylesheet' type='text/css'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Merriweather:300italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico:400"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Oswald:400"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lora:400italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Droid+Serif:400italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Permanent+Marker:400"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
@@ -20,9 +65,7 @@
   <body>
     <section id="welcome">
       <div class="">
-        <button type="button" class="btn" id="liveToastBtn">
-          See Changes
-        </button>
+        <button type="button" class="btn" id="liveToastBtn">See Changes</button>
       </div>
       <div class="position-fixed top-0 end-0 p-4" style="z-index: 11">
         <div
@@ -51,7 +94,7 @@
           </div>
         </div>
       </div>
-       <div class="position-fixed top-0 end-0 p-4" style="z-index: 11">
+      <div class="position-fixed top-0 end-0 p-4" style="z-index: 11">
         <div
           id="copyToast"
           class="toast hide"
@@ -87,12 +130,25 @@
         </div>
         <!-- End of Quote Body -->
         <!-- Buttons and rest -->
-        <div class="tweet" data-bs-toggle="tooltip" data-bs-placement="bottom"  title="Tweet this quote!" target="_top">
+        <div
+          class="tweet"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Tweet this quote!"
+          target="_top"
+        >
           <a id="tweet-quote">
             <i class="fa fa-twitter"></i>
           </a>
         </div>
-        <div id="copy-quote" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Copy this quote!" target="_top" class="copy">
+        <div
+          id="copy-quote"
+          data-bs-toggle="tooltip"
+          data-bs-placement="bottom"
+          title="Copy this quote!"
+          target="_top"
+          class="copy"
+        >
           <a>
             <i class="fa fa-copy"></i>
           </a>
@@ -112,7 +168,6 @@
       </div>
     </div>
     <!--  End of the Whole Quote Body-->
-    <img src="..." class="img-fluid Dimage" alt="...">
     <!-- Search Part -->
     <section id="search" class="position-relative">
       <div class="card mx-auto shadowed say">
@@ -120,38 +175,47 @@
           <h5 class="card-title">Search Quote by Name!</h5>
           <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
           <p class="card-text">
-            So you can search a quote by author's name, just type in the box below.
+            So you can search a quote by author's name, just type in the box
+            below.
           </p>
           <p>
             In case you don't find a match, don't freight, you may yet see their
-            name randomly generated, just keep clicking &ldquo; Next Quote &rdquo; .
+            name randomly generated, just keep clicking &ldquo; Next Quote
+            &rdquo; .
           </p>
         </div>
       </div>
       <div class="position-relative">
-        <div class="searchQ mx-auto row position-absolute top-50 start-50 translate-middle">
-           <div class="col-auto ">
-      <input class="form-control" id="data" list="datalistOptions" placeholder="Type to search...">
-      <datalist id="datalistOptions">
-      </datalist>
-        </div>
-        <div class="col-auto">
-          <button id="searchBtn" type="submit" class="btn mb-3">Search</button>
-        </div>
-      </datalist>
+        <div
+          class="searchQ mx-auto row position-absolute top-50 start-50 translate-middle"
+        >
+          <div class="col-auto">
+            <input
+              class="form-control"
+              id="data"
+              list="datalistOptions"
+              placeholder="Type to search..."
+            />
+            <datalist id="datalistOptions"> </datalist>
+          </div>
+          <div class="col-auto">
+            <button id="searchBtn" type="submit" class="btn mb-3">
+              Search
+            </button>
+          </div>
         </div>
       </div>
-      
+
       <div class="card deSearch">
-        <div class="card-header">
-          Search Result
-        </div>
+        <div class="card-header">Search Result</div>
         <ul class="list-group list-group-flush deList">
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto tag"> Search Something...  </div>
-  </li>
-  </ul>
-</div>
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div class="ms-2 me-auto tag">Search Something...</div>
+          </li>
+        </ul>
+      </div>
     </section>
   </body>
 </html>

@@ -90,15 +90,42 @@ $(document).ready(function () {
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
   );
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl,200000);
+    return new bootstrap.Tooltip(tooltipTriggerEl, 200000);
   });
 });
 // Change Font Func
 $(document).ready(function () {
-   $('.Dqoute').css('font-family','');
-})
-// End Change Font Func
+  var fontList = [];
+  var randomFont = (font) => {
+    for (let i = 0; i < font.length; i++) {
+      fontList.push(randomFont[i]);
+    }
+  };
+  randomFont = [
+    'Permanent Marker',
+    'Rock Salt',
+    'Raleway',
+    'PT Sans',
+    'Lora',
+    'Roboto Condensed',
+    'Oswald',
+    'Open Sans Condensed',
+    'Merriweather',
+    'Ubuntu',
+    'Yanone Kaffeesatz',
+  ]
 
+  var changeFont = () => {
+    var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
+    console.log(random_font);
+    $('.Dqoute').css('font-family', random_font);
+  };
+  changeFont();
+  $('#new-quote').click(function () {
+    changeFont();
+  });
+});
+// End Change Font Func
 
 // Change Colors
 $(document).ready(function () {
@@ -154,7 +181,6 @@ $(document).ready(function () {
 });
 // end of Change Colors
 
-
 // For the Search Qoute
 const settings = {
   async: true,
@@ -164,41 +190,38 @@ const settings = {
 };
 
 $.ajax(settings).done(function (response) {
-  const data = JSON.parse(response); 
-    var authorList = (data) => {
-      var authors = [];
-      for (let i = 0; i < data.length; i++) {
-        authors.push(data[i].author);
-        // 
-      }
-      var SetAuthor = new Set(authors);
-      var ArrAuthor = Array.from(SetAuthor);
-      ArrAuthor.map(x => {
-$('#datalistOptions').append(`<option value="${x}">`);
-      } )
-    };
-authorList(data)
+  const data = JSON.parse(response);
+  var authorList = (data) => {
+    var authors = [];
+    for (let i = 0; i < data.length; i++) {
+      authors.push(data[i].author);
+      //
+    }
+    var SetAuthor = new Set(authors);
+    var ArrAuthor = Array.from(SetAuthor);
+    ArrAuthor.map((x) => {
+      $('#datalistOptions').append(`<option value="${x}">`);
+    });
+  };
+  authorList(data);
 
-
-$('#searchBtn').click(function () {
-  var author = $('input').val();
-  filtered = data.filter((datum) => datum.author == author);
-  $('.deList').text('');
-  filtered.map((x) =>
-    $('.deList').append(
-      `<li class="list-group-item d-flex justify-content-between align-items-start">
+  $('#searchBtn').click(function () {
+    var author = $('input').val();
+    filtered = data.filter((datum) => datum.author == author);
+    $('.deList').text('');
+    filtered.map((x) =>
+      $('.deList').append(
+        `<li class="list-group-item d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto tag"> ${x.text}  — ${x.author}  </div>
       </li>`
       )
-      );
-    });
+    );
+  });
 });
-
 
 // use when you have strength to finish this...
 $(document).ready(function () {
   function copyToClipboard() {
-    
     /* Get the text field */
     var copyText = document.getElementsByClassName('tag');
 
@@ -210,11 +233,13 @@ $(document).ready(function () {
     navigator.clipboard.writeText(copyText.value);
   }
   $('.badgeCol').click(function () {
-$('.tag').addClass('coping');
-copyToClipboard();
+    $('.tag').addClass('coping');
+    copyToClipboard();
   });
-})
+});
 // might add later
-{/* <button class="badge badgeCol"><a>
+{
+  /* <button class="badge badgeCol"><a>
             <i class="fa fa-copy"></i>
-          </a></button> */}
+          </a></button> */
+}
