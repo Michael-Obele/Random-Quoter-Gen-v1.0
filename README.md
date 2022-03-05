@@ -7,6 +7,6 @@ Click here to **[See the Site](https://random-quoter-moa.netlify.app/)**.
 
 Michael Amachree
 
-You can [Email Me](mailto:Amamchree9636@gmail.com?subject=Hey,Love this But...).
+You can [Email Me](mailto:Amamchree9636@gmail.com '@Amamchree_Michael').
 
 Comments and Criticism are appreciated.
