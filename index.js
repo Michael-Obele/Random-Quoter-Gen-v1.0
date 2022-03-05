@@ -113,7 +113,22 @@ $(document).ready(function () {
     'Merriweather',
     'Ubuntu',
     'Yanone Kaffeesatz',
-  ]
+    'Roboto',
+    'Alegreya',
+    'Dancing Script',
+    'EB Garamond',
+    'Amatic SC',
+    'Josefin Sans',
+    'Droid Seri',
+    'Playfair Display',
+    'Alice',
+    'Lato',
+    'Grand Hotel',
+    'Medula One',
+    'Abel',
+    'Coustard',
+    'Leckerli On'
+  ];
 
   var changeFont = () => {
     var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
