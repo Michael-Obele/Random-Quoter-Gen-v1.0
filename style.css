@@ -163,13 +163,15 @@ h1 {
   .searchQ > .col-auto > .form-control {
     width: 50vw;
   }
-  .tweet {
-    top: 25px;
-  }
   .copy {
-    top: 25px;
+    
     right: 50px;
   }
+  .tweet .copy {
+    top: 25px;
+  margin: 5px;
+  font-size: 10px;
+}
   #liveToast{
     width: 90vw;
   }
