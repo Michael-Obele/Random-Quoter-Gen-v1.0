@@ -24,7 +24,7 @@ async function getapi(url) {
     $('#text').fadeOut(0).fadeIn('slow');
     $('#author').fadeOut(0).fadeIn('slow');
     $('.dater').text(
-      `Generated on ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+      `Generated ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
     );
     $('.tweet').click(function () {
       $('#tweet-quote').attr(

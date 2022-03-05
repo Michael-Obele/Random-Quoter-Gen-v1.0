@@ -44,6 +44,7 @@ h1 {
 #new-quote {
   transition: background-color 1.3s ease;
   position: absolute;
+  padding:18px;
   bottom: 5px;
   margin: 20px;
 }
@@ -173,6 +174,15 @@ h1 {
     margin: 5px;
     font-size: 10px;
   }
+  #new-quote {
+    font-size: 0.8rem;
+  bottom: 0;
+  padding:13px;
+  margin: 2px;
+}
+.dater{
+  font-size: 10px;
+}
   #liveToast {
     width: 90vw;
   }
