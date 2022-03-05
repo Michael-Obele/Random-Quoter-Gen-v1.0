@@ -13,6 +13,7 @@ h1 {
 .card-title {
   padding-bottom: 20px;
   font-size: larger;
+  width: 65%;
 }
 
 .shadowed {
@@ -165,11 +166,11 @@ h1 {
   }
   .copy {
     
-    right: 50px;
+    right: 40px;
   }
   .tweet, .copy {
-    top: 25px;
-  margin: 15px;
+    top: 10px;
+  margin: 5px;
   font-size: 10px;
 }
   #liveToast{
