@@ -52,7 +52,7 @@ h1 {
   box-shadow: none;
 }
 
-.tweet .copy {
+.tweet, .copy {
   margin: 18px;
   font-size: 20px;
   width: max-content;
@@ -167,9 +167,9 @@ h1 {
     
     right: 50px;
   }
-  .tweet .copy {
+  .tweet, .copy {
     top: 25px;
-  margin: 5px;
+  margin: 15px;
   font-size: 10px;
 }
   #liveToast{
