@@ -44,7 +44,7 @@ h1 {
 #new-quote {
   transition: background-color 1.3s ease;
   position: absolute;
-  padding:18px;
+  padding: 18px;
   bottom: 5px;
   margin: 20px;
 }
@@ -116,8 +116,9 @@ h1 {
   height: fit-content;
   width: 60%;
 }
-#search{
+#search {
   width: 80%;
+  justify-content: center;
 }
 #search > .card > .card-body > h5 {
   font-size: 30px;
@@ -139,7 +140,6 @@ h1 {
   color: #fff;
 }
 
-
 /* Small Phones */
 @media only screen and (max-width: 600px) {
   #author {
@@ -158,9 +158,6 @@ h1 {
   }
   .deSearch {
     width: 85%;
-    height: 20vh;
-    max-height: max-content;
-    margin: 40vw auto 65vw;
   }
   #search > .card {
     width: 90%;
@@ -179,13 +176,13 @@ h1 {
   }
   #new-quote {
     font-size: 0.8rem;
-  bottom: 0;
-  padding:13px;
-  margin: 2px;
-}
-.dater{
-  font-size: 10px;
-}
+    bottom: 0;
+    padding: 13px;
+    margin: 2px;
+  }
+  .dater {
+    font-size: 10px;
+  }
   #liveToast {
     width: 90vw;
   }
