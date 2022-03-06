@@ -158,6 +158,7 @@ h1 {
   }
   .deSearch {
     width: 85%;
+    margin: 40vw auto 65vw;
   }
   #search > .card {
     width: 90%;
