@@ -131,7 +131,6 @@ $(document).ready(function () {
     'Alice',
     'Lato',
     'Grand Hotel',
-    'Medula One',
     'Abel',
     'Coustard',
     'Leckerli On'
@@ -140,6 +139,7 @@ $(document).ready(function () {
   var changeFont = () => {
     var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
     $('.Dqoute').css('font-family', random_font);
+    console.log(random_font);
   };
   changeFont();
   $('#new-quote').click(function () {
