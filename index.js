@@ -5,6 +5,7 @@ var myText;
 // Get Qoutes API
 async function getapi(url) {
   const response = await fetch(url);
+   $('.spinner-border').addClass('hider');
   var data = await response.json();
   const days = [
     'Sunday',
@@ -21,8 +22,8 @@ async function getapi(url) {
     const rndInt = Math.floor(Math.random() * 50) + 1;
     $('#text').html(`<p> &ldquo; ${data[rndInt].q} &rdquo;</p>`);
     $('#author').text(data[rndInt].a);
-    $('#text').fadeOut(0).fadeIn('slow');
-    $('#author').fadeOut(0).fadeIn('slow');
+    // $('#text').fadeOut(0).fadeIn('slow');
+    // $('#author').fadeOut(0).fadeIn('slow');
     $('.dater').text(
       `Generated ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
     );
@@ -40,20 +41,27 @@ async function getapi(url) {
   }
   pack();
   $('#new-quote').click(function () {
-    $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
     pack();
   });
 }
-// turn this off before development
-getapi(api_url);
 
+var clickNum = 0;
 $(document).ready(function () {
+  getapi(api_url);
+  $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
+  $('#new-quote').click(function () {
+      clickNum = ++clickNum;
+    if (clickNum == 15) {
+      getapi(api_url);
+      clickNum = 0;
+    }
+   });
   // clipboard func
   function copyToClipboard() {
     var text = myText;
     var sampleTextarea = document.createElement('textarea');
     document.body.appendChild(sampleTextarea);
-    sampleTextarea.value = `“${text.quote}” - ${text.author}`; //save main text in it
+    sampleTextarea.value = `“${text.quote}” — ${text.author}`; //save main text in it
     sampleTextarea.select(); //select textarea contenrs
     document.execCommand('copy');
     document.body.removeChild(sampleTextarea);
@@ -63,7 +71,6 @@ $(document).ready(function () {
   $('.copy').click(function () {
     copyToClipboard();
     $('#copy-quote').attr('data-bs-original-title', 'Copied!');
-    // $('#copyToast').toggleClass('show');
     $('#copy-quote').tooltip('show');
   });
   $('.altcls').click(function () {

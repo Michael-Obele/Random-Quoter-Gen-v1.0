@@ -41,6 +41,10 @@ h1 {
   font-size: 25px;
 }
 
+#author, #text{
+  transition: opacity 0.8s;
+}
+
 #new-quote {
   transition: background-color 1.3s ease;
   position: absolute;
@@ -109,6 +113,12 @@ h1 {
 }
 .vis {
   opacity: 0;
+}
+.sho{
+  opacity: 1;
+}
+.hider{
+  display: none;
 }
 
 .say {

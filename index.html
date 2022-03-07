@@ -4,14 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/Logoo.png">
+    <link rel="icon" type="image/x-icon" href="/Logoo.png" />
     <link
       href="https://fonts.googleapis.com/css?family=Rock+Salt:400"
       rel="stylesheet"
       type="text/css"
     />
-    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400italic' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:600' rel='stylesheet' type='text/css'>
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:400italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:600"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Lora:400italic"
       rel="stylesheet"
@@ -27,14 +35,46 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700italic" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Alice|Playfair+Display:900" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Lato:300|Grand+Hotel" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Abel|Medula+One" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Leckerli+One|Coustard:900" rel="stylesheet" type="text/css" />
-    <link href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond" rel="stylesheet" type="text/css" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Alegreya:700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Josefin+Sans:700|Amatic+SC:700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Oswald:700|Droid+Serif:400,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Alice|Playfair+Display:900"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Lato:300|Grand+Hotel"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Abel|Medula+One"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Leckerli+One|Coustard:900"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="http://fonts.googleapis.com/css?family=Dancing+Script:700|EB+Garamond"
+      rel="stylesheet"
+      type="text/css"
+    />
     <link
       href="https://fonts.googleapis.com/css?family=Oswald:400"
       rel="stylesheet"
@@ -98,30 +138,10 @@
           <div class="toast-body">
             <ul>
               <li>Added Copy Button to copy to clipboard, Enjoy! ;)</li>
-              <li>Added search compability</li>
+              <li>Added Search Compability</li>
+              <li>Added Dynamic Random Fonts</li>
+              <li>Added Loading Animation (only on page reload)</li>
             </ul>
-          </div>
-        </div>
-      </div>
-      <div class="position-fixed top-0 end-0 p-4" style="z-index: 11">
-        <div
-          id="copyToast"
-          class="toast hide"
-          role="alert"
-          aria-live="assertive"
-          aria-atomic="true"
-        >
-          <div class="toast-header">
-            <strong class="me-auto">Copied</strong>
-            <button
-              type="button"
-              class="btn-close altcls"
-              data-bs-dismiss="toast"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="toast-body">
-            <p>You've Copied This Quote</p>
           </div>
         </div>
       </div>
@@ -135,6 +155,11 @@
           <div class="card-body Dqoute">
             <h5 id="author" class="card-title"></h5>
             <div id="text" class=""></div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only"></span>
           </div>
         </div>
         <!-- End of Quote Body -->
