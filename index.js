@@ -20,7 +20,7 @@ async function getapi(url) {
     const d = new Date();
     let day = days[d.getDay()];
     const rndInt = Math.floor(Math.random() * 50) + 1;
-    $('#text').html(`<p> &ldquo; ${data[rndInt].q} &rdquo;</p>`);
+    $('#text').html(`<p> <q> ${data[rndInt].q} </q></p>`);
     $('#author').text(data[rndInt].a);
     // $('#text').fadeOut(0).fadeIn('slow');
     // $('#author').fadeOut(0).fadeIn('slow');
