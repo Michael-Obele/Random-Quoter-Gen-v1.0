@@ -5,8 +5,9 @@ var myText;
 // Get Qoutes API
 async function getapi(url) {
   const response = await fetch(url);
-   $('.spinner-border').addClass('hider');
+  $('.spinner-border').addClass('hider');
   var data = await response.json();
+  console.log(data);
   const days = [
     'Sunday',
     'Monday',
@@ -16,14 +17,13 @@ async function getapi(url) {
     'Friday',
     'Saturday',
   ];
+  var list = [];
   function pack() {
     const d = new Date();
     let day = days[d.getDay()];
-    const rndInt = Math.floor(Math.random() * 50) + 1;
-    $('#text').html(`<p> &ldquo; ${data[rndInt].q} &rdquo;</p>`);
+    var rndInt = Math.floor(Math.random() * 50) + 1;
+    $('#text').html(`<p><q> ${data[rndInt].q} </q></p>`);
     $('#author').text(data[rndInt].a);
-    // $('#text').fadeOut(0).fadeIn('slow');
-    // $('#author').fadeOut(0).fadeIn('slow');
     $('.dater').text(
       `Generated ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
     );
@@ -31,7 +31,7 @@ async function getapi(url) {
       $('#tweet-quote').attr(
         'href',
         'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
-          encodeURIComponent('"' + data[rndInt].q + '" —' + data[rndInt].a)
+          encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
       );
     });
     myText = {
@@ -41,6 +41,7 @@ async function getapi(url) {
   }
   pack();
   $('#new-quote').click(function () {
+    $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
     pack();
   });
 }
@@ -50,12 +51,14 @@ $(document).ready(function () {
   getapi(api_url);
   $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
   $('#new-quote').click(function () {
-      clickNum = ++clickNum;
-    if (clickNum == 15) {
-      getapi(api_url);
+    clickNum = ++clickNum;
+    if (clickNum == 20) {
+      window.location.reload();
       clickNum = 0;
     }
-   });
+    console.log(clickNum);
+  });
+
   // clipboard func
   function copyToClipboard() {
     var text = myText;
@@ -133,13 +136,12 @@ $(document).ready(function () {
     'Grand Hotel',
     'Abel',
     'Coustard',
-    'Leckerli On'
+    'Leckerli On',
   ];
 
   var changeFont = () => {
     var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
     $('.Dqoute').css('font-family', random_font);
-    console.log(random_font);
   };
   changeFont();
   $('#new-quote').click(function () {
