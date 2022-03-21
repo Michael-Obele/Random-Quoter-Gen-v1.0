@@ -21,8 +21,8 @@ async function getapi(url) {
   function pack() {
     const d = new Date();
     let day = days[d.getDay()];
-    var rndInt = Math.floor(Math.random() * 50) + 1;
-    $('#text').html(`<p><q> ${data[rndInt].q} </q></p>`);
+    const rndInt = Math.floor(Math.random() * 50) + 1;
+    $('#text').html(`<p> <q> ${data[rndInt].q} </q></p>`);
     $('#author').text(data[rndInt].a);
     $('.dater').text(
       `Generated ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
