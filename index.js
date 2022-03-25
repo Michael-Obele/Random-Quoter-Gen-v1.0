@@ -1,13 +1,14 @@
 const api_url =
   'https://young-gorge-47284.herokuapp.com/https://zenquotes.io/api/quotes/';
 
-var myText;
+var myText,
+  dataList = [];
 // Get Qoutes API
 async function getapi(url) {
   const response = await fetch(url);
   $('.spinner-border').addClass('hider');
   var data = await response.json();
-  console.log(data);
+  dataList.push(data);
   const days = [
     'Sunday',
     'Monday',
@@ -39,6 +40,33 @@ async function getapi(url) {
       quote: data[rndInt].q,
     };
   }
+
+  $('#searchBtn').click(function () {
+    var author = $('input').val();
+    filtered2 = dataList[0].filter((datum) => datum.a == author);
+    $('.deList').text('');
+    filtered2.map((x) =>
+      $('.deList').append(
+        `<li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto tag"> ${x.q}  — ${x.a}  </div>
+      </li>`
+      )
+    );
+  });
+  /*Author List for the other API*/
+  var authorList2 = (datum) => {
+    var authors2 = [];
+    for (let i = 0; i < datum[0].length; i++) {
+      authors2.push(datum[0][i].a);
+    }
+    var SetAuthor2 = new Set(authors2);
+    var ArrAuthor2 = Array.from(SetAuthor2);
+    ArrAuthor2.map((x) => {
+      $('#datalistOptions').append(`<option value="${x}">`);
+    });
+  };
+  authorList2(dataList);
+  // Calling the functions
   pack();
   $('#new-quote').click(function () {
     $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
@@ -56,9 +84,7 @@ $(document).ready(function () {
       window.location.reload();
       clickNum = 0;
     }
-    console.log(clickNum);
   });
-
   // clipboard func
   function copyToClipboard() {
     var text = myText;
@@ -213,12 +239,12 @@ const settings = {
 };
 
 $.ajax(settings).done(function (response) {
-  const data = JSON.parse(response);
-  var authorList = (data) => {
+  var datar = JSON.parse(response);
+  /* Author List for FreeCodeCamp API */
+  var authorList = (datum) => {
     var authors = [];
-    for (let i = 0; i < data.length; i++) {
-      authors.push(data[i].author);
-      //
+    for (let i = 0; i < datum.length; i++) {
+      authors.push(datum[i].author);
     }
     var SetAuthor = new Set(authors);
     var ArrAuthor = Array.from(SetAuthor);
@@ -226,11 +252,11 @@ $.ajax(settings).done(function (response) {
       $('#datalistOptions').append(`<option value="${x}">`);
     });
   };
-  authorList(data);
 
+  authorList(datar);
   $('#searchBtn').click(function () {
     var author = $('input').val();
-    filtered = data.filter((datum) => datum.author == author);
+    filtered = datar.filter((datum) => datum.author == author);
     $('.deList').text('');
     filtered.map((x) =>
       $('.deList').append(

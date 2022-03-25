@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="/Logoo.png" />
+    <link rel="icon" type="image/x-icon" href="/Icon.svg" />
     <link
       href="https://fonts.googleapis.com/css?family=Rock+Salt:400"
       rel="stylesheet"
@@ -203,53 +203,50 @@
     </div>
     <!--  End of the Whole Quote Body-->
     <!-- Search Part -->
-    <section id="search" class="position-relative">
-      <div class="card mx-auto shadowed say">
-        <div class="card-body">
-          <h5 class="card-title">Search Quote by Name!</h5>
-          <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-          <p class="card-text">
-            So you can search a quote by author's name, just type in the box
-            below.
-          </p>
-          <p>
-            In case you don't find a match, don't freight, you may yet see their
-            name randomly generated, just keep clicking &ldquo; Next Quote
-            &rdquo; .
-          </p>
-        </div>
+    <div class="card mx-auto shadowed say">
+      <div class="card-body">
+        <h5 class="card-title">Search Quote by Name!</h5>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+        <p class="card-text">
+          So you can search a quote by author's name, just type in the box
+          below.
+        </p>
+        <p>
+          In case you don't find a match, don't freight, you may yet see their
+          name randomly generated, just keep clicking &ldquo; Next Quote &rdquo;
+          .
+        </p>
       </div>
-      <div class="position-relative">
-        <div
-          class="searchQ mx-auto row position-absolute top-50 start-50 translate-middle"
-        >
-          <div class="col-auto">
-            <input
-              class="form-control"
-              id="data"
-              list="datalistOptions"
-              placeholder="Type to search..."
-            />
-            <datalist id="datalistOptions"> </datalist>
-          </div>
-          <div class="col-auto">
-            <button id="searchBtn" type="submit" class="btn mb-3">
-              Search
-            </button>
-          </div>
-        </div>
-      </div>
+    </div>
 
-      <div class="card deSearch">
-        <div class="card-header">Search Result</div>
-        <ul class="list-group list-group-flush deList">
-          <li
-            class="list-group-item d-flex justify-content-between align-items-start"
-          >
-            <div class="ms-2 me-auto tag">Search Something...</div>
-          </li>
-        </ul>
+    <div class="position-relative">
+      <div
+        class="searchQ mx-auto row position-absolute top-50 start-50 translate-middle"
+      >
+        <div class="col-auto">
+          <input
+            class="form-control"
+            id="data"
+            list="datalistOptions"
+            placeholder="Type to search..."
+          />
+          <datalist id="datalistOptions"> </datalist>
+        </div>
+        <div class="col-auto">
+          <button id="searchBtn" type="submit" class="btn mb-3">Search</button>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <div class="card deSearch">
+      <div class="card-header">Search Result</div>
+      <ul class="list-group list-group-flush deList">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto tag">Search Something...</div>
+        </li>
+      </ul>
+    </div>
   </body>
 </html>
