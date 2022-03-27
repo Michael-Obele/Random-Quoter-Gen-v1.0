@@ -1,7 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Alegreya:ital,wght@0,500;1,500&family=Alice&family=Amatic+SC:wght@700&family=Coustard&family=Dancing+Script:wght@600&family=Lato:ital@1&family=Leckerli+One&family=Lora:ital,wght@1,500&family=Medula+One&family=Merriweather:ital@1&family=Oswald&family=Pacifico&family=Permanent+Marker&family=Playfair+Display&family=Rock+Salt&family=Yanone+Kaffeesatz&display=swap');
+
 body {
   transition: background-color 1.1s ease;
   /* font-family: Droid Serif, sans-serif; */
 }
+
+
 h1 {
   color: aliceblue;
 }
@@ -173,6 +177,12 @@ h1 {
 }
 .badgeCol {
   color: #fff;
+}
+.tawk-min-container{
+  display: none !important;
+}
+iframe{
+  display: none !important;
 }
 
 /* Small Phones */

@@ -278,6 +278,12 @@ $.ajax(settings).done(function (response) {
   });
 });
 
+//other code
+$(document).ready(function () {
+  $('.tawk-button').css('display', 'none !important');
+  $('.tawk-button').css('z-index', 0);
+})
+
 // use when you have strength to finish this...
 $(document).ready(function () {
   function copyToClipboard() {
