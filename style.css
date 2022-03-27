@@ -59,7 +59,8 @@ h1 {
 }
 
 .tweet,
-.copy,.whatsapp {
+.copy,
+.whatsapp {
   margin: 18px;
   font-size: 20px;
   width: max-content;
@@ -74,18 +75,19 @@ h1 {
   right: 0;
   transition: background-color 1.5s ease;
 }
-.tweet > a,.whatsapp > a{
+.tweet > a,
+.whatsapp > a {
   color: white !important;
 }
 .dropdown-menu {
-    padding: 0;
-    background-color: none;
-    transform: translate(-15px, 30px) !important;
-    border: none;
+  padding: 0;
+  background-color: none;
+  transform: translate(-15px, 30px) !important;
+  border: none;
 }
 
-.genbtn{
-   margin: 18px;
+.genbtn {
+  margin: 18px;
   font-size: 20px;
   width: max-content;
   height: max-content;
@@ -102,7 +104,7 @@ h1 {
   /* top: 0px; */
   right: 50px;
 }
-.whatsapp{
+.whatsapp {
   right: 100px;
 }
 
@@ -131,6 +133,7 @@ h1 {
 }
 .searchQ {
   margin-top: 60px;
+  transform: translate(-40%, 30%) !important;  
   width: 60%;
 }
 .vis {
@@ -201,11 +204,12 @@ h1 {
   .copy {
     right: 40px;
   }
-  .whatsapp{
-    right:80px;
+  .whatsapp {
+    right: 80px;
   }
   .tweet,
-  .copy,.whatsapp {
+  .copy,
+  .whatsapp {
     top: 10px;
     margin: 5px;
     font-size: 10px;
