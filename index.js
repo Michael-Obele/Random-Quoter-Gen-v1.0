@@ -40,20 +40,7 @@ async function getapi(url) {
       quote: data[rndInt].q,
     };
   }
-
-  $('#searchBtn').click(function () {
-    var author = $('input').val();
-    filtered2 = dataList[0].filter((datum) => datum.a == author);
-    $('.deList').text('');
-    filtered2.map((x) =>
-      $('.deList').append(
-        `<li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto tag"> ${x.q}  — ${x.a}  </div>
-      </li>`
-      )
-    );
-  });
-  /*Author List for the other API*/
+  /*Author List for this other API*/
   var authorList2 = (datum) => {
     var authors2 = [];
     for (let i = 0; i < datum[0].length; i++) {
@@ -65,8 +52,19 @@ async function getapi(url) {
       $('#datalistOptions').append(`<option value="${x}">`);
     });
   };
+
+  $('#searchBtn').click(function () {
+    var author = $('input').val();
+    filtered2 = dataList[0].filter((datum) => datum.a == author);
+    filtered2.map((x) =>
+      $('.deList').append(
+        `<li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto tag"> ${x.q}  — ${x.a}  </div>
+      </li>`
+      )
+    );
+  }); // Calling the functions
   authorList2(dataList);
-  // Calling the functions
   pack();
   $('#new-quote').click(function () {
     $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
@@ -252,11 +250,12 @@ $.ajax(settings).done(function (response) {
       $('#datalistOptions').append(`<option value="${x}">`);
     });
   };
-
   authorList(datar);
+  //Click Search Button function
   $('#searchBtn').click(function () {
     var author = $('input').val();
     filtered = datar.filter((datum) => datum.author == author);
+    filtered2 = dataList[0].filter((datum) => datum.a == author);
     $('.deList').text('');
     filtered.map((x) =>
       $('.deList').append(
