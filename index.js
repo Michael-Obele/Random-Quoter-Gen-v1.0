@@ -28,13 +28,16 @@ async function getapi(url) {
     $('.dater').text(
       `Generated ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
     );
-    $('.tweet').click(function () {
-      $('#tweet-quote').attr(
-        'href',
-        'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
-          encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
-      );
-    });
+    $('#tweet-quote').attr(
+      'href',
+      'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
+        encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
+    );
+     $('#whatsapp-quote').attr(
+       'href',
+       'whatsapp://send?text=' +
+         encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
+     );
     myText = {
       author: data[rndInt].a,
       quote: data[rndInt].q,
@@ -235,11 +238,6 @@ $(document).ready(function () {
   });
 });
 // end of Change Colors
-
-// Whatsapp Button
- $('.whatsapp').click(function () {
- $('.send').attr('href', 'https://wa.me/15551234567');
- });
 
 // For the Search Qoute
 const settings = {
