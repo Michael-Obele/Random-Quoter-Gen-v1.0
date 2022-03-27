@@ -118,7 +118,7 @@ $(document).ready(function () {
   });
 });
 
-//Toast function
+//Toast functions And Other Bootstrap Items
 $(document).ready(function () {
   // Initialize tooltips
   var tooltipTriggerList = [].slice.call(
@@ -126,6 +126,12 @@ $(document).ready(function () {
   );
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
+  });
+  var collapseElementList = [].slice.call(
+    document.querySelectorAll('.collapse')
+  );
+  var collapseList = collapseElementList.map(function (collapseEl) {
+    return new bootstrap.Collapse(collapseEl);
   });
 });
 // Change Font Func
@@ -217,6 +223,7 @@ $(document).ready(function () {
     $('.tweet').css('background-color', random_color);
     $('.btn').css('background-color', `${random_color} !important`);
     $('.copy').css('background-color', random_color);
+    $('.whatsapp').css('background-color', random_color);
     $('body').css('background-color', random_color);
     $('.badgeCol').css('background-color', random_color);
   };
@@ -228,6 +235,11 @@ $(document).ready(function () {
   });
 });
 // end of Change Colors
+
+// Whatsapp Button
+ $('.whatsapp').click(function () {
+ $('.send').attr('href', 'https://wa.me/15551234567');
+ });
 
 // For the Search Qoute
 const settings = {
