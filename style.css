@@ -74,6 +74,9 @@ h1 {
   right: 0;
   transition: background-color 1.5s ease;
 }
+.tweet > a,.whatsapp > a{
+  color: white !important;
+}
 .dropdown-menu {
     padding: 0;
     background-color: none;
