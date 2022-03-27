@@ -41,7 +41,8 @@ h1 {
   font-size: 25px;
 }
 
-#author, #text{
+#author,
+#text {
   transition: opacity 0.8s;
 }
 
@@ -114,10 +115,10 @@ h1 {
 .vis {
   opacity: 0;
 }
-.sho{
+.sho {
   opacity: 1;
 }
-.hider{
+.hider {
   display: none;
 }
 

@@ -115,23 +115,22 @@
     <!-- Nav Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="../Index.html">
-          <img src="../Icon.svg" alt="" width="30" height="24" />
-          MOACONCEPT</a
+        <a class="navbar-brand" href="#"
+          ><img src="../Icon.svg" alt="" width="30" height="24" /> MOACONCEPT</a
         >
         <button
           class="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarText"
-          aria-controls="navbarText"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" href="https://moaconcept.xyz">Go Home</a>
             </li>
@@ -149,7 +148,7 @@
       <div class="">
         <button type="button" class="btn" id="liveToastBtn">See Changes</button>
       </div>
-      <div class="position-fixed top-0 end-0 p-4" style="z-index: 11">
+      <div class="position-fixed p-4" style="z-index: 11">
         <div
           id="liveToast"
           class="toast hide"
@@ -163,6 +162,8 @@
               <button
                 type="button"
                 class="btn-close toclose"
+                data-bs-autohide="false"
+                data-bs-animation="true"
                 data-bs-dismiss="toast"
                 aria-label="Close"
               ></button>

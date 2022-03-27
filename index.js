@@ -114,6 +114,7 @@ $(document).ready(function () {
   $('#liveToastBtn').click(function () {
     $('#liveToast').toggleClass('show');
     $('#liveToastBtn').addClass('vis');
+    $('#liveToast').toast({ autohide: false });
   });
 });
 
@@ -124,7 +125,7 @@ $(document).ready(function () {
     document.querySelectorAll('[data-bs-toggle="tooltip"]')
   );
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-    return new bootstrap.Tooltip(tooltipTriggerEl, 200000);
+    return new bootstrap.Tooltip(tooltipTriggerEl);
   });
 });
 // Change Font Func
