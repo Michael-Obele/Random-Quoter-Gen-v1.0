@@ -278,11 +278,59 @@ $.ajax(settings).done(function (response) {
   });
 });
 
-//other code
-$(document).ready(function () {
-  $('.tawk-button').css('display', 'none !important');
-  $('.tawk-button').css('z-index', 0);
-})
+//Redux
+const initialState = { count: 0 };
+const actions = {
+  increment: { type: 'INCREMENT' },
+  decrement: { type: 'DECREMENT' },
+};
+const countReducer = (state = initialState.count, action) => {
+  switch (action.type) {
+    case actions.increment.type:
+      return {
+        count: state.count + 1,
+      };
+
+    case actions.decrement.type:
+      return {
+        count: state.count - 1,
+      };
+
+    default:
+      return state;
+  }
+};
+const store = Redux.createStore(countReducer);
+// DOM elements
+const incrementButton = document.querySelector('.increment');
+const decrementButton = document.querySelector('.decrement');
+
+// Wire click events to actions
+incrementButton.addEventListener('click', () => {
+  store.dispatch(actions.increment);
+});
+
+decrementButton.addEventListener('click', () => {
+  store.dispatch(actions.decrement);
+});
+
+
+store.subscribe(() => {
+  $('#select').text('Count: ' + store.getState());
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // use when you have strength to finish this...
 $(document).ready(function () {
