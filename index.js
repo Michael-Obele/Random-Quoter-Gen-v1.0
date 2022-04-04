@@ -33,11 +33,11 @@ async function getapi(url) {
       'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
         encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
     );
-     $('#whatsapp-quote').attr(
-       'href',
-       'whatsapp://send?text=' +
-         encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
-     );
+    $('#whatsapp-quote').attr(
+      'href',
+      'whatsapp://send?text=' +
+        encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
+    );
     myText = {
       author: data[rndInt].a,
       quote: data[rndInt].q,
@@ -206,7 +206,6 @@ $(document).ready(function () {
     '263238',
     'FF3D00',
     'F93154',
-    '212121',
     '3E2723',
     'FF6D00',
     '00C853',
@@ -226,6 +225,8 @@ $(document).ready(function () {
     $('.tweet').css('background-color', random_color);
     $('.btn').css('background-color', `${random_color} !important`);
     $('.copy').css('background-color', random_color);
+    $('.light').css('background-color', random_color);
+    $('.dark').css('background-color', random_color);
     $('.whatsapp').css('background-color', random_color);
     $('body').css('background-color', random_color);
     $('.badgeCol').css('background-color', random_color);
@@ -278,59 +279,88 @@ $.ajax(settings).done(function (response) {
   });
 });
 
-//Redux
-const initialState = { count: 0 };
-const actions = {
-  increment: { type: 'INCREMENT' },
-  decrement: { type: 'DECREMENT' },
+//Redux For Dark Mode
+// LocalStorage
+const loadState = () => {
+  try {
+    const serialState = localStorage.getItem('appState');
+    if (serialState === null) {
+      return undefined;
+    }
+    return JSON.parse(serialState);
+  } catch (err) {
+    return undefined;
+  }
 };
-const countReducer = (state = initialState.count, action) => {
+const persistedState = loadState();
+const saveState = (state) => {
+  try {
+    const serialState = JSON.stringify(state);
+    localStorage.setItem('appState', serialState);
+  } catch (err) {
+    console.log(err);
+  }
+};
+// End!
+// Initial State
+const initialState = { DarkMode: false, persistedState };
+const reducer = (state = initialState.DarkMode, action) => {
   switch (action.type) {
-    case actions.increment.type:
-      return {
-        count: state.count + 1,
-      };
-
-    case actions.decrement.type:
-      return {
-        count: state.count - 1,
-      };
-
+    case 'LIGHT':
+      return false;
+    case 'DARK':
+      return true;
     default:
       return state;
   }
 };
-const store = Redux.createStore(countReducer);
-// DOM elements
-const incrementButton = document.querySelector('.increment');
-const decrementButton = document.querySelector('.decrement');
+const store = Redux.createStore(
+  reducer,
+  persistedState,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 // Wire click events to actions
-incrementButton.addEventListener('click', () => {
-  store.dispatch(actions.increment);
+$(document).ready(function () {
+  $('.dark').click(function () {
+    window.location.reload();
+    store.dispatch({ type: 'DARK' });
+  });
+  $('.light').click(function () {
+    store.dispatch({ type: 'LIGHT' });
+  });
+  const Mood = () => {
+    if (store.getState().DarkMode) {
+      return 'black';
+    } else {
+      return 'white';
+    }
+  };
+  const change = () => {
+    if (store.getState().DarkMode) {
+      $('.dark').hide();
+      $('.light').show();
+    } else {
+      $('.light').hide();
+      $('.dark').show();
+    }
+  };
+  $('.card').css('background-color', Mood());
+  $('.list-group').css('background-color', Mood());
+  $('.form-control').css('background-color', Mood());
+  change();
+
+  store.subscribe(() => {
+    $('.card').css('background-color', Mood());
+    $('.list-group').css('background-color', Mood());
+    $('.form-control').css('background-color', Mood());
+    change();
+    saveState({
+      DarkMode: store.getState(),
+    });
+  });
 });
-
-decrementButton.addEventListener('click', () => {
-  store.dispatch(actions.decrement);
-});
-
-
-store.subscribe(() => {
-  $('#select').text('Count: ' + store.getState());
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
+// End of Redux Function
 
 // use when you have strength to finish this...
 $(document).ready(function () {
