@@ -8,7 +8,6 @@ async function getapi(url) {
   const response = await fetch(url);
   $('.spinner-border').addClass('hider');
   var data = await response.json();
-  console.log(data);
   dataList.push(data);
   const days = [
     'Sunday',
@@ -24,28 +23,30 @@ async function getapi(url) {
   function pack() {
     const d = new Date();
     let day = days[d.getDay()];
-    // const rndInt = Math.floor(Math.random() * 50) + 1;
+    //  For Staric Quotes
     i = i + 1;
     const rndInt = i;
-    $('#text').html(`<p> <q> ${data[rndInt].q} </q></p>`);
-    $('#author').text(data[rndInt].a);
+    myText = {
+      author: data[rndInt].a,
+      quote: data[rndInt].q,
+      h: data[rndInt].h,
+    };
+    $('#text').html(`<p> <q> ${myText.quote} </q></p>`);
+    // $('blockquote').html(myText.h);
+    $('#author').text(myText.author);
     $('.dater').text(
       `Generated ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
     );
     $('#tweet-quote').attr(
       'href',
       'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
-        encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
+        encodeURIComponent('“' + myText.quote + '” —' + myText.author)
     );
     $('#whatsapp-quote').attr(
       'href',
       'whatsapp://send?text=' +
-        encodeURIComponent('“' + data[rndInt].q + '” —' + data[rndInt].a)
+        encodeURIComponent('“' + myText.quote + '” —' + myText.author)
     );
-    myText = {
-      author: data[rndInt].a,
-      quote: data[rndInt].q,
-    };
   }
   /*Author List for this other API*/
   var authorList2 = (datum) => {
@@ -193,7 +194,7 @@ $(document).ready(function () {
 
 // Change Colors
 $(document).ready(function () {
-  var colors = ['#ff0000'];
+  var colors = [];
   var genColor = (color) => {
     for (let i = 0; i < color.length; i++) {
       colors.push('#' + color[i]);
@@ -201,6 +202,7 @@ $(document).ready(function () {
   };
   genColor([
     '39C0ED',
+    'ff0000',
     'd9534f',
     '1266F1',
     'B23CFD',
@@ -229,14 +231,15 @@ $(document).ready(function () {
     'f49ccc',
     'c390af',
     'eb7424',
-    'f7f7f7',
   ]);
   let i = 0;
   const colorCode = () => {
     // var random_color = colors[Math.floor(Math.random() * colors.length)];
+    if (i >= colors.length - 1) {
+      i = 0;
+    }
     i = i + 1;
     var random_color = colors[i];
-    console.log(random_color);
     $('.card').css('color', random_color);
     $('.list-group').css('color', random_color);
     $('#new-quote').css('background-color', random_color);
@@ -258,6 +261,35 @@ $(document).ready(function () {
 });
 // end of Change Colors
 
+//Change H1 tag func
+$(document).ready(function () {
+  let i = 0;
+  var arr = [
+    'Random Quote Maker',
+    'Quote Maker at Random',
+    'Random Quote Builder',
+    'Quote Generator at Random',
+    'Random Quote Writer',
+    'Maker of Random Quotes',
+    'And More Quotes...',
+  ];
+  const replace = (text) => {
+    $('h1').replaceWith(`<h1 class="text-center">${text}</h1>`);
+  };
+  const replaceText = () => {
+    if (i == arr.length) {
+      i = -1;
+    } else {
+      // $('h1').fadeOut('slow');
+      $('h1').fadeOut('slow', 'swing', replace(arr[i]));
+    }
+    i = ++i;
+  };
+  // Replace Text
+  let timer = setInterval(replaceText, 3000);
+});
+//End of Change H1
+
 // For the Search Qoute
 const settings = {
   async: true,
@@ -268,6 +300,17 @@ const settings = {
 
 $.ajax(settings).done(function (response) {
   var datar = JSON.parse(response);
+  // For Dynamic Quotes
+  const Dynamic = () => {
+    const rndNo = Math.floor(Math.random() * 50) + 1;
+    $('blockquote').html(`<p>${datar[rndNo].text}</p>
+            <footer class="blockquote-footer">
+              <cite title="Source Title">${datar[rndNo].author}</cite>
+            </footer>`);
+  };
+  // Replace Text
+  Dynamic();
+  let timer = setInterval(Dynamic, 8000);
   /* Author List for FreeCodeCamp API */
   var authorList = (datum) => {
     var authors = [];
@@ -349,29 +392,39 @@ $(document).ready(function () {
   });
   const Mood = () => {
     if (store.getState().DarkMode) {
-      return 'black';
+      return { bcol: 'black', tcol: 'white' };
     } else {
-      return 'white';
+      return { bcol: 'white', tcol: 'black' };
     }
   };
   const change = () => {
     if (store.getState().DarkMode) {
       $('.dark').hide();
       $('.light').show();
+      $('.navbar').addClass('navbar-dark');
+      $('.navbar').addClass('bg-dark');
+      $('.footer').removeClass('bg-light');
+      $('.footer > a').removeClass('text-dark');
+      $('.footer').addClass('bg-dark');
     } else {
       $('.light').hide();
       $('.dark').show();
+      $('.navbar').removeClass('navbar-dark');
+      $('.navbar').removeClass('bg-dark');
+      $('.footer').addClass('bg-light');
+      $('.footer > a').addClass('text-dark');
+      $('.footer').removeClass('bg-dark');
     }
   };
-  $('.card').css('background-color', Mood());
-  $('.list-group').css('background-color', Mood());
-  $('.form-control').css('background-color', Mood());
+  $('.card').css('background-color', Mood().bcol);
+  $('.list-group').css('background-color', Mood().bcol);
+  $('.form-control').css('background-color', Mood().bcol);
   change();
 
   store.subscribe(() => {
-    $('.card').css('background-color', Mood());
-    $('.list-group').css('background-color', Mood());
-    $('.form-control').css('background-color', Mood());
+    $('.card').css('background-color', Mood().bcol);
+    $('.list-group').css('background-color', Mood().bcol);
+    $('.form-control').css('background-color', Mood().bcol);
     change();
     saveState({
       DarkMode: store.getState(),

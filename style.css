@@ -2,7 +2,6 @@
 
 body {
   transition: background-color 1.1s ease;
-  /* font-family: Droid Serif, sans-serif; */
 }
 
 h1 {
@@ -60,6 +59,16 @@ h1 {
 #new-quote:focus {
   outline: none;
   box-shadow: none;
+}
+
+#Dynamic_Quotes {
+  width: 75vw;
+  height: 30vh;
+  margin: 15px auto 12vh;
+}
+#Dynamic_Quotes > #DynamicQuotes {
+  min-height: 120px;
+  height: fit-content;
 }
 
 .tweet,
