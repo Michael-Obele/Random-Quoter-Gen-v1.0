@@ -8,6 +8,7 @@ async function getapi(url) {
   const response = await fetch(url);
   $('.spinner-border').addClass('hider');
   var data = await response.json();
+  console.log(data);
   dataList.push(data);
   const days = [
     'Sunday',
@@ -19,10 +20,13 @@ async function getapi(url) {
     'Saturday',
   ];
   var list = [];
+  let i = 0;
   function pack() {
     const d = new Date();
     let day = days[d.getDay()];
-    const rndInt = Math.floor(Math.random() * 50) + 1;
+    // const rndInt = Math.floor(Math.random() * 50) + 1;
+    i = i + 1;
+    const rndInt = i;
     $('#text').html(`<p> <q> ${data[rndInt].q} </q></p>`);
     $('#author').text(data[rndInt].a);
     $('.dater').text(
@@ -79,9 +83,10 @@ var clickNum = 0;
 $(document).ready(function () {
   getapi(api_url);
   $('#copy-quote').attr('data-bs-original-title', 'Copy this quote!');
+  // Reloading the page
   $('#new-quote').click(function () {
     clickNum = ++clickNum;
-    if (clickNum == 20) {
+    if (clickNum == 48) {
       window.location.reload();
       clickNum = 0;
     }
@@ -172,9 +177,11 @@ $(document).ready(function () {
     'Coustard',
     'Leckerli On',
   ];
-
+  let i = 0;
   var changeFont = () => {
-    var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
+    // var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
+    var random_font = randomFont[i];
+    i = i + 1;
     $('.Dqoute').css('font-family', random_font);
   };
   changeFont();
@@ -194,19 +201,17 @@ $(document).ready(function () {
   };
   genColor([
     '39C0ED',
+    'd9534f',
     '1266F1',
     'B23CFD',
     '00B74A',
     'FFA900',
-    '262626',
     '283593',
     '004D40',
     'FB8C00',
     'BF360C',
-    '263238',
     'FF3D00',
     'F93154',
-    '3E2723',
     'FF6D00',
     '00C853',
     '33691E',
@@ -216,9 +221,22 @@ $(document).ready(function () {
     '6200EA',
     '4A148C',
     '311B92',
+    'e7aa0a',
+    '8f549f',
+    '80b4f0',
+    'acabcf',
+    '162ea0',
+    'f49ccc',
+    'c390af',
+    'eb7424',
+    'f7f7f7',
   ]);
+  let i = 0;
   const colorCode = () => {
-    var random_color = colors[Math.floor(Math.random() * colors.length)];
+    // var random_color = colors[Math.floor(Math.random() * colors.length)];
+    i = i + 1;
+    var random_color = colors[i];
+    console.log(random_color);
     $('.card').css('color', random_color);
     $('.list-group').css('color', random_color);
     $('#new-quote').css('background-color', random_color);
