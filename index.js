@@ -406,6 +406,9 @@ $(document).ready(function () {
       $('.footer').removeClass('bg-light');
       $('.footer > a').removeClass('text-dark');
       $('.footer').addClass('bg-dark');
+      $('.footer > .text-center').removeClass('text-dark');
+      $('.footer > .text-center > a').removeClass('text-dark');
+      $('.footer > .text-center > a').addClass('text-light');
     } else {
       $('.light').hide();
       $('.dark').show();
@@ -413,6 +416,8 @@ $(document).ready(function () {
       $('.navbar').removeClass('bg-dark');
       $('.footer').addClass('bg-light');
       $('.footer > a').addClass('text-dark');
+      $('.footer > .text-center').addClass('text-dark');
+      $('.footer > .text-center > a').addClass('text-dark');
       $('.footer').removeClass('bg-dark');
     }
   };
