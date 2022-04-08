@@ -286,7 +286,7 @@ $(document).ready(function () {
     i = ++i;
   };
   // Replace Text
-  let timer = setInterval(replaceText, 3000);
+  let timer = setInterval(replaceText, 3500);
 });
 //End of Change H1
 
@@ -310,7 +310,7 @@ $.ajax(settings).done(function (response) {
   };
   // Replace Text
   Dynamic();
-  let timer = setInterval(Dynamic, 8000);
+  let timer = setInterval(Dynamic, 8500);
   /* Author List for FreeCodeCamp API */
   var authorList = (datum) => {
     var authors = [];
