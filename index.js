@@ -424,6 +424,7 @@ $(document).ready(function () {
   $('.card').css('background-color', Mood().bcol);
   $('.list-group').css('background-color', Mood().bcol);
   $('.form-control').css('background-color', Mood().bcol);
+  $('.form-control').css('color', Mood().tcol);
   change();
 
   store.subscribe(() => {

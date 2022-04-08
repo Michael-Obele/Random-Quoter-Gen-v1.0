@@ -227,17 +227,17 @@ iframe {
     width: 50vw;
   }
   .copy {
-    right: 40px;
+    right: 52px;
   }
   .whatsapp {
-    right: 80px;
+    right: 106px;
   }
   .tweet,
   .copy,
   .whatsapp {
     top: 10px;
     margin: 5px;
-    font-size: 10px;
+    font-size: 22px;
   }
   #new-quote {
     font-size: 0.8rem;
