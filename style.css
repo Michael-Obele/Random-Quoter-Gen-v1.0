@@ -64,14 +64,19 @@ h1 {
 #Dynamic_Quotes {
   width: 75vw;
   height: 30vh;
+  padding-top: 10vh;
   margin: 15px auto 12vh;
 }
 #Dynamic_Quotes > #DynamicQuotes {
   min-height: 120px;
   height: fit-content;
 }
+#Static_Unit {
+  padding-top: 10vh;
+}
 #Search_Unit {
   margin-top: 15vh;
+  padding-top: 10vh;
 }
 
 .tweet,

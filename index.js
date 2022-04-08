@@ -329,14 +329,23 @@ $.ajax(settings).done(function (response) {
     var author = $('input').val();
     filtered = datar.filter((datum) => datum.author == author);
     filtered2 = dataList[0].filter((datum) => datum.a == author);
-    $('.deList').text('');
-    filtered.map((x) =>
+    if (filtered2.length == 0 && filtered.length == 0) {
+      $('.deList').text('');
       $('.deList').append(
         `<li class="list-group-item d-flex justify-content-between align-items-start">
-      <div class="ms-2 me-auto tag"> ${x.text}  — ${x.author}  </div>
+      <div class="ms-2 me-auto tag"> Please try a different name. </div>
       </li>`
-      )
-    );
+      );
+    } else {
+      $('.deList').text('');
+      filtered.map((x) =>
+        $('.deList').append(
+          `<li class="list-group-item d-flex justify-content-between align-items-start">
+        <div class="ms-2 me-auto tag"> ${x.text}  — ${x.author}  </div>
+        </li>`
+        )
+      );
+    }
   });
 });
 

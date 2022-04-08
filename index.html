@@ -65,11 +65,18 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="https://moaconcept.xyz">Go Home</a>
+              <a class="nav-link" target="_self" href="#Dynamic_Quotes"
+                >Dynamic Quotes</a
+              >
             </li>
             <li class="nav-item">
-              <a aria-current="page" class="nav-link active" href="#"
-                >Random Quoter</a
+              <a class="nav-link" target="_self" href="#Static_Unit"
+                >Static Quotes</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_self" href="#Search_Unit"
+                >Search Quotes</a
               >
             </li>
           </ul>
@@ -87,8 +94,10 @@
     <!-- End of Nav Bar -->
     <!-- Changes Button -->
     <section id="welcome">
-      <div class="">
-        <button type="button" class="btn" id="liveToastBtn">See Changes</button>
+      <div>
+        <button type="button" class="btn" id="liveToastBtn">
+          See Features
+        </button>
       </div>
       <div class="position-fixed p-4" style="z-index: 11">
         <div
@@ -99,7 +108,7 @@
           aria-atomic="true"
         >
           <div class="toast-header">
-            <strong class="me-auto">Latest Changes</strong>
+            <strong class="me-auto">Features:</strong>
             <div class="toclose">
               <button
                 type="button"
@@ -113,13 +122,13 @@
           </div>
           <div class="toast-body">
             <ul>
-              <li>Added Copy Button to copy to clipboard, Enjoy! ;)</li>
-              <li>Added Search Compability</li>
-              <li>Added Dynamic Random Fonts</li>
-              <li>Added Loading Animation (only on page reload)</li>
-              <li>Added Nav Bar</li>
-              <li>Added Share on Whatsapp</li>
-              <li>Added Dark Theme(with Persistent State )</li>
+              <li>Copy & Share Buttons</li>
+              <li>Search Compability</li>
+              <li>Dynamic Fonts and Colors</li>
+              <li>Static and Dynamic Quotes</li>
+              <li>Loading Animations (only on page reload)</li>
+              <li>Dark Theme(with Persistent State)</li>
+              <li>And Much More</li>
             </ul>
           </div>
         </div>
@@ -221,7 +230,9 @@
       <h2 class="text-light text-center">Search Quotes</h2>
       <div class="card mx-auto shadowed say">
         <div class="card-body">
-          <h5 class="card-title">Search Quote by Name!</h5>
+          <h5 class="card-title text-capitalize">
+            Find a quote by the author's name!
+          </h5>
           <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
           <p class="card-text">
             You can find a full quote by searching for the author's name. Simply
