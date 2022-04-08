@@ -302,7 +302,7 @@ $.ajax(settings).done(function (response) {
   var datar = JSON.parse(response);
   // For Dynamic Quotes
   const Dynamic = () => {
-    const rndNo = Math.floor(Math.random() * 50) + 1;
+    const rndNo = Math.floor(Math.random() * 1642) + 1;
     $('blockquote').html(`<p>${datar[rndNo].text}</p>
             <footer class="blockquote-footer">
               <cite title="Source Title">${datar[rndNo].author}</cite>

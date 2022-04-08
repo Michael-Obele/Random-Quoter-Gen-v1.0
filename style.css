@@ -70,6 +70,9 @@ h1 {
   min-height: 120px;
   height: fit-content;
 }
+#Search_Unit {
+  margin-top: 15vh;
+}
 
 .tweet,
 .copy,
