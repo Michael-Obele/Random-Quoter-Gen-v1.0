@@ -234,12 +234,12 @@ $(document).ready(function () {
   ]);
   let i = 0;
   const colorCode = () => {
-    // var random_color = colors[Math.floor(Math.random() * colors.length)];
-    if (i >= colors.length - 1) {
-      i = 0;
-    }
-    i = i + 1;
-    var random_color = colors[i];
+    var random_color = colors[Math.floor(Math.random() * colors.length)];
+    // if (i >= colors.length - 1) {
+    //   i = 0;
+    // }
+    // i = i + 1;
+    // var random_color = colors[i];
     $('.card').css('color', random_color);
     $('.list-group').css('color', random_color);
     $('#new-quote').css('background-color', random_color);
@@ -397,6 +397,7 @@ $(document).ready(function () {
     store.dispatch({ type: 'DARK' });
   });
   $('.light').click(function () {
+    window.location.reload();
     store.dispatch({ type: 'LIGHT' });
   });
   const Mood = () => {
@@ -440,6 +441,7 @@ $(document).ready(function () {
     $('.card').css('background-color', Mood().bcol);
     $('.list-group').css('background-color', Mood().bcol);
     $('.form-control').css('background-color', Mood().bcol);
+    $('.form-control').css('color', Mood().tcol);
     change();
     saveState({
       DarkMode: store.getState(),
@@ -448,6 +450,10 @@ $(document).ready(function () {
 });
 // End of Redux Function
 
+//
+//
+//
+//
 // use when you have strength to finish this...
 $(document).ready(function () {
   function copyToClipboard() {
