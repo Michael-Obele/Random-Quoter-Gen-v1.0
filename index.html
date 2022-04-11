@@ -35,6 +35,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script
+      src="https://kit.fontawesome.com/7cc1bf722a.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./bootstrap.bundle.min.js"></script>
     <script src="./jquery-3.6.0.min.js"></script>
     <script src="./index.js"></script>
@@ -87,197 +91,202 @@
             <button type="button" class="btn dark">
               <i class="fa fa-moon-o" aria-hidden="true"></i>
             </button>
+            <button type="button" class="btn change_col">
+              <i class="fa fa-circle-half-stroke"></i>
+            </button>
           </div>
         </div>
       </div>
     </nav>
     <!-- End of Nav Bar -->
-    <!-- Changes Button -->
-    <section id="welcome">
-      <div>
-        <button type="button" class="btn" id="liveToastBtn">
-          See Features
-        </button>
-      </div>
-      <div class="position-fixed p-4" style="z-index: 11">
-        <div
-          id="liveToast"
-          class="toast hide"
-          role="alert"
-          aria-live="assertive"
-          aria-atomic="true"
-        >
-          <div class="toast-header">
-            <strong class="me-auto">Features:</strong>
-            <div class="toclose">
-              <button
-                type="button"
-                class="btn-close toclose"
-                data-bs-autohide="false"
-                data-bs-animation="true"
-                data-bs-dismiss="toast"
-                aria-label="Close"
-              ></button>
+    <div id="body_section">
+      <!-- Changes Button -->
+      <section id="welcome">
+        <div>
+          <button type="button" class="btn" id="liveToastBtn">
+            See Features
+          </button>
+        </div>
+        <div class="position-fixed p-4" style="z-index: 11">
+          <div
+            id="liveToast"
+            class="toast hide"
+            role="alert"
+            aria-live="assertive"
+            aria-atomic="true"
+          >
+            <div class="toast-header">
+              <strong class="me-auto">Features:</strong>
+              <div class="toclose">
+                <button
+                  type="button"
+                  class="btn-close toclose"
+                  data-bs-autohide="false"
+                  data-bs-animation="true"
+                  data-bs-dismiss="toast"
+                  aria-label="Close"
+                ></button>
+              </div>
+            </div>
+            <div class="toast-body">
+              <ul>
+                <li>Copy & Share Buttons</li>
+                <li>Search Compability</li>
+                <li>Dynamic Fonts and Colors</li>
+                <li>Static and Dynamic Quotes</li>
+                <li>Loading Animations (only on page reload)</li>
+                <li>Dark Theme(with Persistent State)</li>
+                <li>And Much More</li>
+              </ul>
             </div>
           </div>
-          <div class="toast-body">
-            <ul>
-              <li>Copy & Share Buttons</li>
-              <li>Search Compability</li>
-              <li>Dynamic Fonts and Colors</li>
-              <li>Static and Dynamic Quotes</li>
-              <li>Loading Animations (only on page reload)</li>
-              <li>Dark Theme(with Persistent State)</li>
-              <li>And Much More</li>
-            </ul>
-          </div>
         </div>
-      </div>
-    </section>
-    <!-- End Changes Button -->
-    <!-- We'll be changing this at interval -->
-    <h1 class="text-center">Random Quote Generator</h1>
-    <!-- We'll be changing this at interval -->
-    <!-- Dynamic Quotes -->
-    <section id="Dynamic_Quotes">
-      <div id="DynamicQuotes" class="card text-center shadowed">
-        <div class="card-header">Quote</div>
-        <div class="card-body">
-          <blockquote class="blockquote mb-0">
-            <h3>...Loading Quotes...</h3>
-            <!-- <p>A well-known quote, contained in a blockquote element.</p>
+      </section>
+      <!-- End Changes Button -->
+      <!-- We'll be changing this at interval -->
+      <h1 class="text-center">Random Quote Generator</h1>
+      <!-- We'll be changing this at interval -->
+      <!-- Dynamic Quotes -->
+      <section id="Dynamic_Quotes">
+        <div id="DynamicQuotes" class="card text-center shadowed">
+          <div class="card-header">Quote</div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <h3>...Loading Quotes...</h3>
+              <!-- <p>A well-known quote, contained in a blockquote element.</p>
             <footer class="blockquote-footer">
               Someone famous in <cite title="Source Title">Source Title</cite>
             </footer> -->
-          </blockquote>
+            </blockquote>
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- End Dynamic Quotes -->
-    <!-- The Beginning -->
+      </section>
+      <!-- End Dynamic Quotes -->
+      <!-- The Beginning -->
 
-    <section id="Static_Unit">
-      <!-- Quote Body -->
-      <h2 class="text-center text-light">Static Random Quotes</h2>
-      <div id="quote-box" class="card mb-2 mx-auto shadowed">
-        <div class="row g-0">
-          <div class="col-md-8">
-            <div class="card-body Dqoute">
-              <h5 id="author" class="card-title"></h5>
-              <div id="text" class=""></div>
+      <section id="Static_Unit">
+        <!-- Quote Body -->
+        <h2 class="text-center text-light">Static Random Quotes</h2>
+        <div id="quote-box" class="card mb-2 mx-auto shadowed">
+          <div class="row g-0">
+            <div class="col-md-8">
+              <div class="card-body Dqoute">
+                <h5 id="author" class="card-title"></h5>
+                <div id="text" class=""></div>
+              </div>
+            </div>
+            <div class="d-flex justify-content-center">
+              <div class="spinner-border" role="status">
+                <span class="sr-only"></span>
+              </div>
+            </div>
+            <!-- End of Quote Body -->
+            <!-- Buttons and rest -->
+            <div
+              class="tweet"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Tweet this quote!"
+              target="_top"
+            >
+              <a id="tweet-quote">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </div>
+            <div
+              id="copy-quote"
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Copy this quote!"
+              target="_top"
+              class="copy"
+            >
+              <a>
+                <i class="fa fa-copy"></i>
+              </a>
+            </div>
+            <div
+              data-bs-toggle="tooltip"
+              data-bs-placement="bottom"
+              title="Send on Whatsapp!"
+              target="_top"
+              class="whatsapp"
+            >
+              <a id="whatsapp-quote" data-action="share/whatsapp/share">
+                <i class="fa fa-whatsapp"></i>
+              </a>
             </div>
           </div>
-          <div class="d-flex justify-content-center">
-            <div class="spinner-border" role="status">
-              <span class="sr-only"></span>
-            </div>
+          <div class="justify-content-start smallText">
+            <p class="card-text"><small class="text-muted dater"></small></p>
           </div>
-          <!-- End of Quote Body -->
-          <!-- Buttons and rest -->
-          <div
-            class="tweet"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            title="Tweet this quote!"
-            target="_top"
-          >
-            <a id="tweet-quote">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </div>
-          <div
-            id="copy-quote"
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            title="Copy this quote!"
-            target="_top"
-            class="copy"
-          >
-            <a>
-              <i class="fa fa-copy"></i>
-            </a>
-          </div>
-          <div
-            data-bs-toggle="tooltip"
-            data-bs-placement="bottom"
-            title="Send on Whatsapp!"
-            target="_top"
-            class="whatsapp"
-          >
-            <a id="whatsapp-quote" data-action="share/whatsapp/share">
-              <i class="fa fa-whatsapp"></i>
-            </a>
-          </div>
-        </div>
-        <div class="justify-content-start smallText">
-          <p class="card-text"><small class="text-muted dater"></small></p>
-        </div>
-        <div class="d-grid gap-2 d-flex justify-content-end">
-          <button
-            id="new-quote"
-            class="btn btn-primary btn-lg"
-            title="Get another Quote!"
-          >
-            Next Quote
-          </button>
-        </div>
-      </div>
-    </section>
-    <!--  End of the Whole Quote Body-->
-
-    <!-- Search Part -->
-    <section id="Search_Unit">
-      <h2 class="text-light text-center">Search Quotes</h2>
-      <div class="card mx-auto shadowed say">
-        <div class="card-body">
-          <h5 class="card-title text-capitalize">
-            Find a quote by the author's name!
-          </h5>
-          <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
-          <p class="card-text">
-            You can find a full quote by searching for the author's name. Simply
-            enter it in the space below.
-          </p>
-          <p>
-            Don't worry if you don't find a match. You may still see their name,
-            which will be generated at random. Just keep clicking &ldquo; Next
-            Quote &rdquo; .
-          </p>
-        </div>
-      </div>
-
-      <div class="position-relative">
-        <div class="searchQ mx-auto row position-relative top-50 start-50">
-          <div class="col-auto">
-            <input
-              class="form-control"
-              id="data"
-              list="datalistOptions"
-              placeholder="Type to search..."
-            />
-            <datalist id="datalistOptions"> </datalist>
-          </div>
-          <div class="col-auto">
-            <button id="searchBtn" type="submit" class="btn mb-3">
-              Search
+          <div class="d-grid gap-2 d-flex justify-content-end">
+            <button
+              id="new-quote"
+              class="btn btn-primary btn-lg"
+              title="Get another Quote!"
+            >
+              Next Quote
             </button>
           </div>
         </div>
-      </div>
+      </section>
+      <!--  End of the Whole Quote Body-->
 
-      <div class="card deSearch">
-        <div class="card-header">Search Result</div>
-        <div class="search_container">
-          <ul class="list-group list-group-flush deList">
-            <li
-              class="list-group-item d-flex justify-content-between align-items-start"
-            >
-              <div class="ms-2 me-auto tag">Search Something...</div>
-            </li>
-          </ul>
+      <!-- Search Part -->
+      <section id="Search_Unit">
+        <h2 class="text-light text-center">Search Quotes</h2>
+        <div class="card mx-auto shadowed say">
+          <div class="card-body">
+            <h5 class="card-title text-capitalize">
+              Find a quote by the author's name!
+            </h5>
+            <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+            <p class="card-text">
+              You can find a full quote by searching for the author's name.
+              Simply enter it in the space below.
+            </p>
+            <p>
+              Don't worry if you don't find a match. You may still see their
+              name, which will be generated at random. Just keep clicking
+              &ldquo; Next Quote &rdquo; .
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div class="position-relative">
+          <div class="searchQ mx-auto row position-relative top-50 start-50">
+            <div class="col-auto">
+              <input
+                class="form-control"
+                id="data"
+                list="datalistOptions"
+                placeholder="Type to search..."
+              />
+              <datalist id="datalistOptions"> </datalist>
+            </div>
+            <div class="col-auto">
+              <button id="searchBtn" type="submit" class="btn mb-3">
+                Search
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card deSearch">
+          <div class="card-header">Search Result</div>
+          <div class="search_container">
+            <ul class="list-group list-group-flush deList">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-start"
+              >
+                <div class="ms-2 me-auto tag">Search Something...</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
     <!-- <footer class="footer mt-auto py-3 bg-light">
 </footer> -->
     <!-- Footer Unit -->

@@ -246,16 +246,21 @@ $(document).ready(function () {
     $('.tweet').css('background-color', random_color);
     $('.btn').css('background-color', `${random_color} !important`);
     $('.copy').css('background-color', random_color);
+    $('.change_col').css('background-color', random_color);
     $('.light').css('background-color', random_color);
     $('.dark').css('background-color', random_color);
     $('.whatsapp').css('background-color', random_color);
     $('body').css('background-color', random_color);
+    // $('#body_section').css('background-color', random_color);
     $('.badgeCol').css('background-color', random_color);
   };
 
   colorCode();
 
   $('#new-quote').click(function () {
+    colorCode();
+  });
+  $('.change_col').click(function () {
     colorCode();
   });
 });

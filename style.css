@@ -154,8 +154,8 @@ h1 {
   font-size: 18px;
 }
 .searchQ {
-  margin-top: 60px;
-  transform: translate(-80%, 80%) !important;
+  /* margin-top: 60px; */
+  transform: translate(-100%, 50px) !important;
   width: 60%;
 }
 .list-group-item {
@@ -175,7 +175,7 @@ h1 {
 .say {
   margin-top: 40px;
   height: fit-content;
-  width: 60%;
+  width: 85%;
 }
 #search {
   width: 80%;
@@ -190,13 +190,16 @@ h1 {
 }
 
 .searchQ > .col-auto > .form-control {
-  width: 45vw;
+  width: 75vw;
+  height: auto;
+  margin: auto;
   transition: all 1s;
 }
 .deSearch {
-  width: 65%;
+  width: 85%;
   height: fit-content;
   margin: 10vw auto 15vw;
+  padding-bottom: 12px;
 }
 .badgeCol {
   color: #fff;
@@ -207,7 +210,32 @@ h1 {
 iframe {
   display: none !important;
 }
-
+#body_section {
+  z-index: 4;
+  position: relative;
+  background-color: inherit;
+  box-shadow: rgb(0 0 0 / 5%) 0px 1px 3px, rgb(0 0 0 / 5%) 0px 10px 15px -5px,
+    rgb(0 0 0 / 4%) 0px 7px 7px -5px;
+  /* padding-bottom: 12px; */
+}
+.footer {
+  padding-bottom: 12vh;
+  padding-top: 20vh;
+  height: 3vh;
+  z-index: -1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+/* For the footer */
+@media only screen and (max-width: 767px) {
+  .footer {
+    padding-top: 0vh;
+    position: relative;
+    padding-bottom: 15vh;
+  }
+}
 /* Small Phones */
 @media only screen and (max-width: 600px) {
   #author {
@@ -226,7 +254,7 @@ iframe {
   }
   .deSearch {
     width: 85%;
-    margin: 40vw auto 15vw;
+    margin: 20vw auto 15vw;
   }
   #search > .card {
     width: 90%;
