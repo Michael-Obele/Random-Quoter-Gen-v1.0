@@ -236,6 +236,12 @@ iframe {
     padding-bottom: 15vh;
     z-index: 0;
   }
+  #body_section {
+    z-index: 0;
+    position: relative;
+    background-color: inherit;
+    box-shadow: none;
+  }
 }
 /* Small Phones */
 @media only screen and (max-width: 600px) {
