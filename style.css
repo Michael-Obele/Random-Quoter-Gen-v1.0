@@ -295,8 +295,10 @@ iframe {
   #liveToast {
     width: 90vw;
   }
-  /* Safari Browsers */
-  @supports (-webkit-appearance: none) /* Safari/Chrome Hacks */ {
+}
+/* Safari Browser */
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
     #author {
       font-size: 20px;
     }
