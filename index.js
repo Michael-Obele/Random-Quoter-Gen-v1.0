@@ -279,7 +279,7 @@ $(document).ready(function () {
     'And More Quotes...',
   ];
   const replace = (text) => {
-    $('h1').replaceWith(`<h1 class="text-center">${text}</h1>`);
+    $('h1').replaceWith(`<h1 class="text-center fs-1">${text}</h1>`);
   };
   const replaceText = () => {
     if (i == arr.length) {
