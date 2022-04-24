@@ -234,6 +234,7 @@ iframe {
     padding-top: 0vh;
     position: relative;
     padding-bottom: 15vh;
+    z-index: 0;
   }
 }
 /* Small Phones */
