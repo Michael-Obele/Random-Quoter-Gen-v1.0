@@ -64,7 +64,7 @@ h1 {
 
 #Dynamic_Quotes {
   width: 75vw;
-  height: 30vh;
+  height: max-content;
   padding-top: 10vh;
   margin: 15px auto 12vh;
 }
@@ -298,7 +298,22 @@ iframe {
 }
 /* Safari Browser */
 @media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
+  @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+    .footer {
+      padding-top: 0vh;
+      position: relative;
+      padding-bottom: 15vh;
+      z-index: 0;
+    }
+    #body_section {
+      z-index: 0;
+      position: relative;
+      background-color: inherit;
+      box-shadow: none;
+    }
+  }
+  /* Small Phones */
+  @media only screen and (max-width: 600px) {
     #author {
       font-size: 20px;
     }
