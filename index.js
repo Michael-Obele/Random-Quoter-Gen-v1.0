@@ -1,5 +1,5 @@
 const api_url =
-  'https://young-gorge-47284.herokuapp.com/https://zenquotes.io/api/quotes/';
+  'https://moa-redirect-cors.herokuapp.com/https://zenquotes.io/api/quotes/';
 
 var myText,
   dataList = [];
