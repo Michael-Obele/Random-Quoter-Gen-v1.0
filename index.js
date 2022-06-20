@@ -3,7 +3,7 @@ const api_url =
 
 var myText,
   dataList = [];
-// Get Qoutes API
+// Get Quotes API
 async function getapi(url) {
   const response = await fetch(url);
   $('.spinner-border').addClass('hider');
@@ -23,7 +23,7 @@ async function getapi(url) {
   function pack() {
     const d = new Date();
     let day = days[d.getDay()];
-    //  For Staric Quotes
+    //  For Static Quotes
     i = i + 1;
     const rndInt = i;
     myText = {
@@ -98,7 +98,7 @@ $(document).ready(function () {
     var sampleTextarea = document.createElement('textarea');
     document.body.appendChild(sampleTextarea);
     sampleTextarea.value = `“${text.quote}” — ${text.author}`; //save main text in it
-    sampleTextarea.select(); //select textarea contenrs
+    sampleTextarea.select(); //select textarea contents
     document.execCommand('copy');
     document.body.removeChild(sampleTextarea);
   }
@@ -240,18 +240,17 @@ $(document).ready(function () {
     // }
     // i = i + 1;
     // var random_color = colors[i];
-    $('.card').css('color', random_color);
-    $('.list-group').css('color', random_color);
+    // $('.card').css('color', random_color);
+    // $('.list-group').css('color', random_color);
     $('#new-quote').css('background-color', random_color);
     $('.tweet').css('background-color', random_color);
     $('.btn').css('background-color', `${random_color} !important`);
     $('.copy').css('background-color', random_color);
+    $('.whatsapp').css('background-color', random_color);
     $('.change_col').css('background-color', random_color);
     $('.light').css('background-color', random_color);
     $('.dark').css('background-color', random_color);
-    $('.whatsapp').css('background-color', random_color);
     $('body').css('background-color', random_color);
-    // $('#body_section').css('background-color', random_color);
     $('.badgeCol').css('background-color', random_color);
   };
 
@@ -295,7 +294,7 @@ $(document).ready(function () {
 });
 //End of Change H1
 
-// For the Search Qoute
+// For the Search Quote
 const settings = {
   async: true,
   crossDomain: true,
@@ -437,6 +436,11 @@ $(document).ready(function () {
     }
   };
   $('.card').css('background-color', Mood().bcol);
+  $('#new-quote').css('color', Mood().tcol);
+  $('.copy').css('color', Mood().tcol);
+  $('.whatsapp').css('color', Mood().tcol);
+  $('.tweet').css('color', Mood().tcol);
+  $('.card').css('color', Mood().tcol);
   $('.list-group').css('background-color', Mood().bcol);
   $('.form-control').css('background-color', Mood().bcol);
   $('.form-control').css('color', Mood().tcol);
