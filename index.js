@@ -9,20 +9,18 @@ async function getapi(url) {
   $('.spinner-border').addClass('hider');
   var data = await response.json();
   dataList.push(data);
-  const days = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-  ];
+  const today = new Date().toLocaleString('en-US', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  });
   var list = [];
   let i = 0;
   function pack() {
-    const d = new Date();
-    let day = days[d.getDay()];
     //  For Static Quotes
     i = i + 1;
     const rndInt = i;
@@ -32,11 +30,8 @@ async function getapi(url) {
       h: data[rndInt].h,
     };
     $('#text').html(`<p> <q> ${myText.quote} </q></p>`);
-    // $('blockquote').html(myText.h);
     $('#author').text(myText.author);
-    $('.dater').text(
-      `Generated ${day} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
-    );
+    $('.dater').text(`Generated ${today}`);
     $('#tweet-quote').attr(
       'href',
       'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
@@ -265,6 +260,7 @@ $(document).ready(function () {
 });
 // end of Change Colors
 
+/* 
 //Change H1 tag func
 $(document).ready(function () {
   let i = 0;
@@ -293,6 +289,7 @@ $(document).ready(function () {
   let timer = setInterval(replaceText, 3500);
 });
 //End of Change H1
+*/
 
 // For the Search Quote
 const settings = {
@@ -415,6 +412,7 @@ $(document).ready(function () {
     if (store.getState().DarkMode) {
       $('.dark').hide();
       $('.light').show();
+      $('.footer > a').css('border-color', Mood().tcol);
       $('.navbar').addClass('navbar-dark');
       $('.navbar').addClass('bg-dark');
       $('.footer').removeClass('bg-light');
@@ -426,6 +424,7 @@ $(document).ready(function () {
     } else {
       $('.light').hide();
       $('.dark').show();
+      $('.footer > a').css('border-color', Mood().tcol);
       $('.navbar').removeClass('navbar-dark');
       $('.navbar').removeClass('bg-dark');
       $('.footer').addClass('bg-light');
@@ -436,6 +435,8 @@ $(document).ready(function () {
     }
   };
   $('.card').css('background-color', Mood().bcol);
+  $('h1').css('color', Mood().tcol);
+  $('h2').css('color', Mood().tcol);
   $('#new-quote').css('color', Mood().tcol);
   $('.copy').css('color', Mood().tcol);
   $('.whatsapp').css('color', Mood().tcol);
