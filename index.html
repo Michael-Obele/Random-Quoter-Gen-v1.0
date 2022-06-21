@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-MJKVGLHWNY"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-
-      gtag('config', 'G-MJKVGLHWNY');
-    </script>
-    <!-- End of Google Analytics -->
     <!-- Microsoft Clarity -->
     <script type="text/javascript">
       (function (c, l, a, r, i, t, y) {
@@ -35,26 +20,41 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Quotes. Random Quotes: A fantastic website for finding random quotes and inspiration in vibrant colors. Happy Quoting!"
+    />
     <!-- start -->
     <link rel="shortcut icon" type="image/ico" href="/Icon.svg" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="./bootstrap.css" />
-    <!-- redux cdnjs -->
+    <!-- Bootstrap CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <!-- redux CDN -->
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/redux/5.0.0-alpha.0/redux.js"
       integrity="sha512-rrwKW9q7MLeNxl6R7SHb2DjciTUBoCFCdbTwMQWdfJ1uqT22lKR5YWdbKoRuBLFGk3XoEZ7jRwWjiCGLopwW1g=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- Jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/7cc1bf722a.js"
       crossorigin="anonymous"
     ></script>
-    <script src="./bootstrap.bundle.min.js"></script>
-    <script src="./jquery-3.6.0.min.js"></script>
     <script src="./index.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Random Quoter</title>
@@ -92,23 +92,37 @@
               <a class="nav-link" href="#Search_Unit">Search Quotes</a>
             </li>
           </ul>
-          <div id="Darkmode">
-            <button type="button" class="btn light">
+          <section id="NavBtn">
+            <!-- Light/Dark Theme Options -->
+            <button
+              aria-label="Turn on dark mode"
+              type="button"
+              class="btn light"
+            >
               <i class="fa-solid fa-sun"></i>
             </button>
-            <button type="button" class="btn dark">
+            <button
+              aria-label="Turn off dark mode"
+              type="button"
+              class="btn dark"
+            >
               <i class="fa-solid fa-moon"></i>
             </button>
-            <button type="button" class="btn change_col">
+            <!-- Change Colors Button -->
+            <button
+              type="button"
+              class="btn change_col"
+              aria-label="Change Colors"
+            >
               <i class="fa fa-circle-half-stroke" aria-hidden="true"></i>
             </button>
-          </div>
+          </section>
         </div>
       </div>
     </nav>
     <!-- End of Nav Bar -->
     <div id="body_section">
-      <!-- Changes Button -->
+      <!-- How To Button -->
       <section id="welcome">
         <div>
           <button type="button" class="btn" id="liveToastBtn">
@@ -204,6 +218,7 @@
             </div>
             <!-- End of Quote Body -->
             <!-- Buttons and rest -->
+            <!-- Twitter Button -->
             <div
               class="tweet"
               data-bs-toggle="tooltip"
@@ -211,10 +226,15 @@
               title="Tweet this quote!"
               target="_top"
             >
-              <a id="tweet-quote" target="_blank">
+              <a
+                id="tweet-quote"
+                aria-label="'Tweet' this quote"
+                target="_blank"
+              >
                 <i class="fa fa-twitter"></i>
               </a>
             </div>
+            <!-- Copy Button -->
             <div
               id="copy-quote"
               data-bs-toggle="tooltip"
@@ -227,6 +247,7 @@
                 <i class="fa fa-copy"></i>
               </a>
             </div>
+            <!-- Whatsapp Button -->
             <div
               data-bs-toggle="tooltip"
               data-bs-placement="bottom"
@@ -234,7 +255,11 @@
               target="_top"
               class="whatsapp"
             >
-              <a id="whatsapp-quote" data-action="share/whatsapp/share">
+              <a
+                aria-label="Share on Whatsapp"
+                id="whatsapp-quote"
+                data-action="share/whatsapp/share"
+              >
                 <i class="fa fa-whatsapp"></i>
               </a>
             </div>
@@ -321,6 +346,7 @@
         class="btn btn-link btn-floating btn-lg text-dark m-1"
         href="https://twitter.com/Dev_Obele"
         role="button"
+        aria-label="Twitter Link"
         data-mdb-ripple-color="dark"
         ><i class="fa fa-twitter"></i
       ></a>
@@ -331,6 +357,7 @@
         href="mailto:amachree9630@gmail.com"
         role="button"
         data-mdb-ripple-color="dark"
+        aria-label="Email Link"
         ><i class="fa fa-google"></i
       ></a>
 
@@ -340,6 +367,7 @@
         href="https://www.instagram.com/moa_concepts/"
         role="button"
         data-mdb-ripple-color="dark"
+        aria-label="Instagram Link"
         ><i class="fa fa-instagram"></i
       ></a>
 
@@ -349,6 +377,7 @@
         href="https://www.linkedin.com/in/michael-amachree-1b71b8210/"
         role="button"
         data-mdb-ripple-color="dark"
+        aria-label="Linkedin Link"
         ><i class="fa fa-linkedin"></i
       ></a>
       <!-- Github -->
@@ -357,6 +386,7 @@
         href="https://github.com/Michael-Obele"
         role="button"
         data-mdb-ripple-color="dark"
+        aria-label="Github Link"
         ><i class="fa fa-github"></i
       ></a>
       <!-- Whatsapp -->
@@ -365,6 +395,7 @@
         href="https://wa.me/2349069170098?text=Hey,I%20love%20your%20App!"
         role="button"
         data-mdb-ripple-color="dark"
+        aria-label="Whatsapp Link"
         ><i class="fa fa-whatsapp"></i
       ></a>
 
@@ -382,5 +413,11 @@
       </div>
       <!-- Copyright -->
     </footer>
+    <!-- Bootstrap JS CDN -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

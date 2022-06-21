@@ -138,6 +138,7 @@ $(document).ready(function () {
     return new bootstrap.Collapse(collapseEl);
   });
 });
+
 // Change Font Func
 $(document).ready(function () {
   var fontList = [];
@@ -175,7 +176,6 @@ $(document).ready(function () {
   ];
   let i = 0;
   var changeFont = () => {
-    // var random_font = randomFont[Math.floor(Math.random() * randomFont.length)];
     var random_font = randomFont[i];
     i = i + 1;
     $('.Dqoute').css('font-family', random_font);
@@ -230,13 +230,6 @@ $(document).ready(function () {
   let i = 0;
   const colorCode = () => {
     var random_color = colors[Math.floor(Math.random() * colors.length)];
-    // if (i >= colors.length - 1) {
-    //   i = 0;
-    // }
-    // i = i + 1;
-    // var random_color = colors[i];
-    // $('.card').css('color', random_color);
-    // $('.list-group').css('color', random_color);
     $('#new-quote').css('background-color', random_color);
     $('.tweet').css('background-color', random_color);
     $('.btn').css('background-color', `${random_color} !important`);
@@ -259,37 +252,6 @@ $(document).ready(function () {
   });
 });
 // end of Change Colors
-
-/* 
-//Change H1 tag func
-$(document).ready(function () {
-  let i = 0;
-  var arr = [
-    'Random Quote Maker',
-    'Quote Maker at Random',
-    'Random Quote Builder',
-    'Quote Generator at Random',
-    'Random Quote Writer',
-    'Maker of Random Quotes',
-    'And More Quotes...',
-  ];
-  const replace = (text) => {
-    $('h1').replaceWith(`<h1 class="text-center fs-1">${text}</h1>`);
-  };
-  const replaceText = () => {
-    if (i == arr.length) {
-      i = -1;
-    } else {
-      // $('h1').fadeOut('slow');
-      $('h1').fadeOut('slow', 'swing', replace(arr[i]));
-    }
-    i = ++i;
-  };
-  // Replace Text
-  let timer = setInterval(replaceText, 3500);
-});
-//End of Change H1
-*/
 
 // For the Search Quote
 const settings = {
@@ -350,7 +312,7 @@ $.ajax(settings).done(function (response) {
   });
 });
 
-//Redux For Dark Mode
+//Redux: For Dark Mode
 // LocalStorage
 const loadState = () => {
   try {
@@ -387,8 +349,8 @@ const reducer = (state = initialState.DarkMode, action) => {
 };
 const store = Redux.createStore(
   reducer,
-  persistedState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  persistedState
+  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 // Wire click events to actions
@@ -459,31 +421,3 @@ $(document).ready(function () {
   });
 });
 // End of Redux Function
-//
-//
-//
-//
-// use when you have strength to finish this...
-$(document).ready(function () {
-  function copyToClipboard() {
-    /* Get the text field */
-    var copyText = document.getElementsByClassName('tag');
-
-    /* Select the text field */
-    copyText.text();
-    copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-    /* Copy the text inside the text field */
-    navigator.clipboard.writeText(copyText.value);
-  }
-  $('.badgeCol').click(function () {
-    $('.tag').addClass('coping');
-    copyToClipboard();
-  });
-});
-// might add later
-{
-  /* <button class="badge badgeCol"><a>
-            <i class="fa fa-copy"></i>
-          </a></button> */
-}
