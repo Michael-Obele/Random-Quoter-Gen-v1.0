@@ -1,12 +1,20 @@
-# Random Quote Generator
- A Random Quote Generator built calling some API's using JQuery and Bootstrap. Nothing too fancy.
+# Random Quote Maker
 
-Click here to **[See the Site](https://random-quoter-moa.netlify.app/)**.
+The first version of my Random Quote App.
 
-# Author
+I created a Random Quote Generator that calls some APIs using JQuery and Bootstrap.
+
+Nothing out of the ordinary...but it does look nice with the changing colors and other features; for more information, click the 'how to use' button at the top.
+
+[Click here](https://random-quoter-moa.netlify.app/) to visit the site.
+
+## Inventor
 
 Michael Amachree
 
-You can [Email Me](mailto:Amamchree9636@gmail.com '@Amamchree_Michael').
+You can reach me by email ['@Amamchree Michael'](Amamchree9636@gmail.com).
 
-Comments and Criticism are appreciated.
+We welcome your feedback and criticism.
+---
+
+> Just so you know, this project has been upgraded; you can find versions prior to this one in my repository.
