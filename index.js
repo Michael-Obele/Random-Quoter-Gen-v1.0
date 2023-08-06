@@ -1,13 +1,64 @@
-const api_url =
-  'https://moa-redirect-cors.herokuapp.com/https://zenquotes.io/api/quotes/';
+// const api_url = 'https://zenquotes.io/api/quotes/';
+
+let i = 0;
+
+function pack(data) {
+  //  For Static Quotes
+  i = i + 1;
+  const rndInt = i;
+  myText = {
+    author: data[rndInt].author,
+    quote: data[rndInt].text,
+  };
+  $('#text').html(`<p> <q> ${myText.quote} </q></p>`);
+  $('#author').text(myText.author);
+  $('.dater').text(`Generated ${today}`);
+  $('#tweet-quote').attr(
+    'href',
+    'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
+      encodeURIComponent('“' + myText.quote + '” —' + myText.author)
+  );
+  $('#whatsapp-quote').attr(
+    'href',
+    'whatsapp://send?text=' +
+      encodeURIComponent('“' + myText.quote + '” —' + myText.author)
+  );
+}
+
+// Fix for blocked by CORS policy
+async function fetchWithCORS(url) {
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
+
+  if (response.status === 200) {
+    return response;
+  } else {
+    throw new Error(response.statusText);
+  }
+}
+
+async function main() {
+  const responses = await fetchWithCORS('https://type.fit/api/quotes');
+
+  try {
+    const data = await responses.json();
+    pack(data);
+    console.log(data);
+  } catch (error) {
+    console.log('Error:', error);
+  }
+}
+main();
 
 var myText,
   dataList = [];
-// Get Quotes API
-async function getapi(url) {
-  const response = await fetch(url);
+//Get Quotes API
+function getapi() {
   $('.spinner-border').addClass('hider');
-  var data = await response.json();
   dataList.push(data);
   const today = new Date().toLocaleString('en-US', {
     day: '2-digit',
@@ -18,31 +69,7 @@ async function getapi(url) {
     second: '2-digit',
     hour12: true,
   });
-  var list = [];
-  let i = 0;
-  function pack() {
-    //  For Static Quotes
-    i = i + 1;
-    const rndInt = i;
-    myText = {
-      author: data[rndInt].a,
-      quote: data[rndInt].q,
-      h: data[rndInt].h,
-    };
-    $('#text').html(`<p> <q> ${myText.quote} </q></p>`);
-    $('#author').text(myText.author);
-    $('.dater').text(`Generated ${today}`);
-    $('#tweet-quote').attr(
-      'href',
-      'https://twitter.com/intent/tweet?hashtags=quotes&related=Dev_Obele&text=' +
-        encodeURIComponent('“' + myText.quote + '” —' + myText.author)
-    );
-    $('#whatsapp-quote').attr(
-      'href',
-      'whatsapp://send?text=' +
-        encodeURIComponent('“' + myText.quote + '” —' + myText.author)
-    );
-  }
+
   /*Author List for this other API*/
   var authorList2 = (datum) => {
     var authors2 = [];
@@ -227,7 +254,6 @@ $(document).ready(function () {
     'c390af',
     'eb7424',
   ]);
-  let i = 0;
   const colorCode = () => {
     var random_color = colors[Math.floor(Math.random() * colors.length)];
     $('#new-quote').css('background-color', random_color);
@@ -265,7 +291,7 @@ $.ajax(settings).done(function (response) {
   var datar = JSON.parse(response);
   // For Dynamic Quotes
   const Dynamic = () => {
-    const rndNo = Math.floor(Math.random() * 1642) + 1;
+    const rndNo = Math.floor(Math.random() * 15) + 1;
     $('blockquote').html(`<p>${datar[rndNo].text}</p>
             <footer class="blockquote-footer">
               <cite title="Source Title">${datar[rndNo].author}</cite>
